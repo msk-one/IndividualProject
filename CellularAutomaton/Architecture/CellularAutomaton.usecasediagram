@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="3abb5656-85db-4db9-8d78-084c294683ca" name="CellularAutomaton" linkedPackageId="6c8eec03-2c3f-49ba-92ee-70eb22529940" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="51248f54-7862-4c84-b3ca-54b9b7e88cd7">
+      <profileInstance Id="a340923e-0c45-4b23-8462-9b1e919f1428" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="e137c697-ed8c-436b-bdd6-a8ce3c6a6c92">
+      <profileInstance Id="8a1ccc05-828b-44b9-9e62-687009dc7e44" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="34fecdd7-e0e0-4531-a19a-36aea0938ce7" name="User" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="dcaeb196-cd03-46ad-9886-2915f439fe4f" />
+        <targetEnds>
+          <association Id="64bb500e-cf7e-41af-9285-3d598fac9bbd" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Change simulation state" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="07a502a4-d2c0-48a7-956b-d585a5cd9b65" LastKnownName="Change simulation state" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="87ef6d07-d897-444f-a6a8-fee40003913d" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="81a74818-a176-4683-9634-5a7db05ad442" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e9838806-cb05-4297-9a25-481c9671f551" name="Change simulation state" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="c9b6d118-51f4-4836-bc74-4e46a8c517d3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c95c5b57-c770-4423-8e14-61e70e990123" />
+          </association>
+          <association Id="076e2b9c-cc77-4dcf-ac2b-835437d95054" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Input initial configuration" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="fcc6bd1f-bb2f-4e02-9c5d-b143d30763f1" LastKnownName="Input initial configuration" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="09e74427-c32e-4154-8358-1a16e10143d6" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b42721ae-3943-455c-97ae-17208c22d723" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5d494842-df89-46a0-b890-ef08d2553136" name="Input initial configuration" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0274b7bc-86b2-4b1c-b67e-30c231589ae8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="95c3093e-fb39-4b79-bb92-ea94f569a25c" />
+          </association>
+          <association Id="8fe9e926-5928-40ba-b118-42373a0ce463" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Save state of Grid to file" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="0fba352f-c23d-4640-87e1-72b26095e84e" LastKnownName="Save state of Grid to file" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c5b11386-5120-456b-be88-66d1d202e585" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a881b0a2-c550-4606-9522-5910e080a35b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="081956c6-1874-4594-bd91-6b4ad18620e0" name="Save state of Grid to file" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="022ae1af-5082-4730-a5e4-7a3b7905d365" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f2f5b000-6d44-4176-8c5d-896ad42e9edf" />
+          </association>
+          <association Id="493e5caf-6584-4c88-b99e-0e56690ea42e" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Zoom in" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="fd3e8487-697d-4745-b255-baa4328c9a62" LastKnownName="Zoom in" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f7ff5869-1e28-402f-8e61-de2090d4e800" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="7cf25d53-6817-4715-b4f1-63629f8d3c7d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3e67551e-c1de-4ad2-9b4f-80a2e9eacdca" name="Zoom in" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1353cfae-2257-4880-b5db-0f23a0fb70f1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="2cbecc67-c572-49f8-840f-96e181d45523" />
+          </association>
+          <association Id="8ffd4133-93f4-4eb0-adec-819962448eae" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Zoom out" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="b55b6723-698b-413b-afe1-f668f32a6c73" LastKnownName="Zoom out" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="cca726c5-6b42-4031-ab16-80962bc979dc" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="005a3a5c-03c7-4db3-9d79-905314604014" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ef4b1ce9-aa66-43c9-a897-67b049a9e46d" name="Zoom out" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="42f76917-3c0e-4a5e-97ab-19666fae237d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="12dc7bc1-cd68-42b2-8a64-bb5097a567b8" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="07a502a4-d2c0-48a7-956b-d585a5cd9b65" name="Change simulation state" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0c026805-e859-4bc3-956a-22ddf7c11784" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="4803ddac-c916-42a3-86c6-633edc39521a" name="Stop" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="aec31beb-8e1e-47c1-bd39-0d5dd0515933" />
+        <generalsInternal>
+          <generalization Id="f778d3a9-f6cf-4c25-bdd3-9253bb1f02a7" isSubstitutable="false">
+            <useCaseMoniker Id="07a502a4-d2c0-48a7-956b-d585a5cd9b65" LastKnownName="Change simulation state" />
+            <elementDefinition Id="a8aa7939-e017-4933-9ddb-c1169b7e0583" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="edf107fb-ace4-410b-a3bb-c4519a5c0df8" name="Resume" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2444013e-f28c-429b-9fdb-5e9a9b43d9dc" />
+        <generalsInternal>
+          <generalization Id="60a855ba-2e0a-4453-b6c6-614c210fb1fd" isSubstitutable="false">
+            <useCaseMoniker Id="07a502a4-d2c0-48a7-956b-d585a5cd9b65" LastKnownName="Change simulation state" />
+            <elementDefinition Id="db428416-ab05-4062-97e5-cc018026d964" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c5efd72a-51b7-4515-a3f2-b0f0d57215f3" name="Pause" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="557c7355-bdb9-472d-b3e0-744731e0c721" />
+        <generalsInternal>
+          <generalization Id="bed4ced3-680a-4d35-96b5-c856392f35d2" isSubstitutable="false">
+            <useCaseMoniker Id="07a502a4-d2c0-48a7-956b-d585a5cd9b65" LastKnownName="Change simulation state" />
+            <elementDefinition Id="49fc2a92-c190-491d-9a37-915e9b4e9705" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="76689e05-477e-47e2-b481-847b88e8345f" name="Reset" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b585bd28-6b16-4d3d-a368-8ecd5c73dc8d" />
+        <generalsInternal>
+          <generalization Id="86cc2b61-c203-4b46-9598-568ca0af3378" isSubstitutable="false">
+            <useCaseMoniker Id="07a502a4-d2c0-48a7-956b-d585a5cd9b65" LastKnownName="Change simulation state" />
+            <elementDefinition Id="705a9bbe-cf28-4fb3-8ff7-8e9bf1c2ad8b" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="fcc6bd1f-bb2f-4e02-9c5d-b143d30763f1" name="Input initial configuration" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="233913e3-3e57-4179-922f-162bd1738573" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="838b33a5-6124-463b-ae05-20e615be6705" name="Simulation count (n)" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="069222f8-25a8-45ff-aba8-2b514fb62d1a" />
+        <generalsInternal>
+          <generalization Id="28b01862-6be5-4bf4-a432-da4152aa82ac" isSubstitutable="false">
+            <useCaseMoniker Id="fcc6bd1f-bb2f-4e02-9c5d-b143d30763f1" LastKnownName="Input initial configuration" />
+            <elementDefinition Id="e1a398e9-5ad2-4fad-8dd5-849644471132" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="91a05137-8d1b-4001-96cc-1ced3532244f" name="Rule Set" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9fef15d8-2cb1-4d5b-960e-bf4edc4fabac" />
+        <generalsInternal>
+          <generalization Id="f5544e95-a076-48cd-a3f2-eaaeb16527a5" isSubstitutable="false">
+            <useCaseMoniker Id="fcc6bd1f-bb2f-4e02-9c5d-b143d30763f1" LastKnownName="Input initial configuration" />
+            <elementDefinition Id="3c1ab229-6ae9-48fd-bcc5-46352d840cdd" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="fe68f30a-4549-4e51-8ca4-d1f07623c3df" name="Custom" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0ac0e7c5-c59d-4389-8a3a-54e9e8893fb4" />
+        <additions>
+          <include Id="7ed1ab1d-951e-4f46-b2e4-2ab0014d4c0b">
+            <useCaseMoniker Id="91a05137-8d1b-4001-96cc-1ced3532244f" LastKnownName="Rule Set" />
+            <elementDefinition Id="4155ef6f-b899-4caa-b97e-fbf073e8e65a" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="128ea785-0ce7-4d5a-9caa-71442fd84ad4" name="Predefined" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="62e8040c-efdb-4e1c-8aec-d8479e2026bc" />
+        <additions>
+          <include Id="96252ff8-15c3-4b6e-bad8-491a0c728ef1">
+            <useCaseMoniker Id="91a05137-8d1b-4001-96cc-1ced3532244f" LastKnownName="Rule Set" />
+            <elementDefinition Id="b0b02004-8128-4b74-86ce-ded9e1bc5fe2" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="57044a49-2c7c-4eed-8e6c-b134b5fffe01" name="Rule Validity check" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="10b4553f-a16a-4510-a91e-6f446c323ec9" />
+        <additions>
+          <include Id="089ad618-5198-4167-b2da-f16b681478af">
+            <useCaseMoniker Id="91a05137-8d1b-4001-96cc-1ced3532244f" LastKnownName="Rule Set" />
+            <elementDefinition Id="a2510472-8522-4e8c-bbc6-b87794e33d4c" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="f0af3ceb-f654-4c67-a831-0f0770a76b81" name="Initial grid state from file" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b4a1d7d8-d6fa-4b47-8afb-e22caf2111a0" />
+        <generalsInternal>
+          <generalization Id="5c61d701-824a-4ddf-b7e9-f2ce77eafdfa" isSubstitutable="false">
+            <useCaseMoniker Id="fcc6bd1f-bb2f-4e02-9c5d-b143d30763f1" LastKnownName="Input initial configuration" />
+            <elementDefinition Id="19ea6e68-9eab-41b2-b283-9cb419211238" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="0fba352f-c23d-4640-87e1-72b26095e84e" name="Save state of Grid to file" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5b07b155-3111-4d93-b5fa-1945adec20dd" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d2d05984-9171-4e0e-88aa-93037900bdb7" name="Contradicting" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c1bcbd0d-4df2-4225-84a1-cd48219bdae6" />
+        <generalsInternal>
+          <generalization Id="008be594-742e-4fc0-96c4-559f3d08b90d" isSubstitutable="false">
+            <useCaseMoniker Id="57044a49-2c7c-4eed-8e6c-b134b5fffe01" LastKnownName="Rule Validity check" />
+            <elementDefinition Id="125d81b7-c439-4015-a6e0-6f7577e33876" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="a973e23d-1669-4fcf-9eba-9038f469f445" name="Duplicating" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="987d60a5-736e-45d1-aad0-c47172c59bea" />
+        <generalsInternal>
+          <generalization Id="dede931a-23e5-4e90-b05d-b63a456d8de9" isSubstitutable="false">
+            <useCaseMoniker Id="57044a49-2c7c-4eed-8e6c-b134b5fffe01" LastKnownName="Rule Validity check" />
+            <elementDefinition Id="4b902fc7-7a14-4359-9b7f-a73c817a5896" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="44ccda01-0d00-43df-b8b3-54ec1a47aefc" name="Add new rule" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="80cdbe35-aba5-4292-9201-f47c5c72ba99" />
+        <generalsInternal>
+          <generalization Id="1b19a6b6-5f14-40c3-ad76-f9badc897e61" isSubstitutable="false">
+            <useCaseMoniker Id="fe68f30a-4549-4e51-8ca4-d1f07623c3df" LastKnownName="Custom" />
+            <elementDefinition Id="f309ba69-69b3-4899-b3ab-5fb92e91fd27" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="121b7e1b-1bc3-4659-b455-65e086371f76" name="Edit existing one" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6516f8f7-1bf1-42a6-8e17-bb2a4aef21e5" />
+        <generalsInternal>
+          <generalization Id="1ea2f75c-6ac8-4bdc-b494-946ec8039858" isSubstitutable="false">
+            <useCaseMoniker Id="fe68f30a-4549-4e51-8ca4-d1f07623c3df" LastKnownName="Custom" />
+            <elementDefinition Id="e2c08dce-6be6-4c53-98a6-5a08a8c712c3" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="e4257367-8884-471b-9cec-30686a644c58" name="Remove rule" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7d15819b-d3a5-4818-bf0c-4cbd5b65564f" />
+        <generalsInternal>
+          <generalization Id="4e656cb2-6358-4599-9f72-962cfb903f10" isSubstitutable="false">
+            <useCaseMoniker Id="fe68f30a-4549-4e51-8ca4-d1f07623c3df" LastKnownName="Custom" />
+            <elementDefinition Id="2252bf40-0852-45b3-bc94-9b3055b59289" />
+          </generalization>
+        </generalsInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="fd3e8487-697d-4745-b255-baa4328c9a62" name="Zoom in" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6c05d84f-e334-4915-b72a-5c7d16c3c045" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="b55b6723-698b-413b-afe1-f668f32a6c73" name="Zoom out" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b3f0bc5b-f5a2-4885-86c2-127bc3b30888" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="6c8eec03-2c3f-49ba-92ee-70eb22529940" name="Architecture">
+    <elementDefinition Id="93ac7f9e-16b4-464f-b197-2de9b78627ff" />
+  </package>
+</useCaseModelRoot>

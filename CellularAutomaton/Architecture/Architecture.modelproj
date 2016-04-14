@@ -37,6 +37,13 @@
       <SubType>Content</SubType>
       <DependentUpon>CellularAutomaton.classdiagram</DependentUpon>
     </Content>
+    <Content Include="CellularAutomaton.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="CellularAutomaton.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>CellularAutomaton.usecasediagram</DependentUpon>
+    </Content>
     <Content Include="ModelDefinition\Architecture.uml">
       <SubType>Content</SubType>
     </Content>
