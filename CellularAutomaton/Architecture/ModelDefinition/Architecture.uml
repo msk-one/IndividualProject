@@ -387,7 +387,6 @@
           <property
             Id="cec00dd9-d8ee-4384-95e7-2d57e12b5792"
             name="cells"
-            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -398,8 +397,8 @@
             isComposite="false">
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="74e92ab4-9b27-4443-8977-d9dd04d3a34b"
-                LastKnownName="Collection&lt;Cell&gt;"
+                Id="293640e4-b47c-48c3-82a8-5a9907691595"
+                LastKnownName="List&lt;List&lt;Cell&gt;&gt;"
                 LastKnownLocation="Architecture.uml" />
             </type_NamedElement>
           </property>
@@ -470,7 +469,6 @@
           <property
             Id="a2487c13-dbb1-491e-814d-a805d847ff9d"
             name="cells"
-            visibility="Private"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
@@ -481,8 +479,8 @@
             isComposite="false">
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="74e92ab4-9b27-4443-8977-d9dd04d3a34b"
-                LastKnownName="Collection&lt;Cell&gt;"
+                Id="293640e4-b47c-48c3-82a8-5a9907691595"
+                LastKnownName="List&lt;List&lt;Cell&gt;&gt;"
                 LastKnownLocation="Architecture.uml" />
             </type_NamedElement>
           </property>
@@ -601,8 +599,8 @@
             isComposite="false">
             <type_NamedElement>
               <undefinedTypeMoniker
-                Id="6346f1a3-c2e8-4155-9a6f-f4a57e45818a"
-                LastKnownName="Collection&lt;Rule&gt;"
+                Id="7ba91d77-d261-4844-ba2c-fb414eb10acf"
+                LastKnownName="ArrayList&lt;Rule&gt;"
                 LastKnownLocation="Architecture.uml" />
             </type_NamedElement>
           </property>
@@ -635,6 +633,14 @@
           <operation
             Id="bd90cb2f-ba4a-4837-a7e2-6977d1807586"
             name="applyRules"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="3421671c-3163-4abc-af7f-e5da33075ad2"
+            name="checkRuleSetValidity"
             isLeaf="false"
             isStatic="false"
             isAbstract="false"
@@ -725,8 +731,8 @@
             isComposite="false">
             <type_NamedElement>
               <primitiveTypeMoniker
-                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
-                LastKnownName="String"
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
                 LastKnownLocation="Architecture.uml" />
             </type_NamedElement>
           </property>
@@ -794,8 +800,8 @@
                   direction="Return">
                   <type_NamedElement>
                     <primitiveTypeMoniker
-                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
-                      LastKnownName="String"
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
                       LastKnownLocation="Architecture.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -813,13 +819,14 @@
             <ownedParameters>
               <operationHasOwnedParameters>
                 <parameter
-                  Id="3eb5f985-0483-4de4-bdcf-e73550487488"
+                  Id="c594cd07-97f1-49e9-a6ad-47e754a90083"
                   name="t"
-                  direction="In">
+                  direction="In"
+                  isUnique="false">
                   <type_NamedElement>
                     <primitiveTypeMoniker
-                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
-                      LastKnownName="String"
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
                       LastKnownLocation="Architecture.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -899,7 +906,20 @@
                   isDerivedUnion="false"
                   aggregation="None"
                   isComposite="false"
-                  isNavigableOwned="false" />
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="f9adf660-1404-4389-90b6-164d5da4e3bc"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="e9bf4227-ee1b-42fa-afd4-da9b1b22ae1b"
+                      name="Upper"
+                      value="." />
+                  </upperValueInternal>
+                </memberEnd>
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
@@ -950,7 +970,20 @@
                   isDerived="false"
                   isDerivedUnion="false"
                   aggregation="None"
-                  isComposite="false" />
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="f09941dd-9b54-4ffc-9fe5-1e3ab31da0b2"
+                      name="Lower"
+                      value="2" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="32b73c2b-177b-4d59-96af-3ea8c4400989"
+                      name="Upper"
+                      value="2" />
+                  </upperValueInternal>
+                </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
@@ -994,13 +1027,13 @@
                     <literalString
                       Id="41fd607c-b87e-4ae6-bbdc-3cbbed739550"
                       name="Lower"
-                      value="2" />
+                      value="1" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
                       Id="6b0ff9e5-83b9-47ad-8056-08740c23066c"
                       name="Upper"
-                      value="2" />
+                      value=".n" />
                   </upperValueInternal>
                 </memberEnd>
               </associationHasOwnedEnds>
@@ -1022,8 +1055,8 @@
             isComposite="false">
             <type_NamedElement>
               <classMoniker
-                Id="47fb66a2-6f7a-4bb7-b7f9-7d02632b7768"
-                LastKnownName="State"
+                Id="ae8f52d8-161a-43d0-80c5-0bda72268530"
+                LastKnownName="Neighborhood"
                 LastKnownLocation="Architecture.uml" />
             </type_NamedElement>
           </property>
@@ -1170,8 +1203,8 @@
                   direction="Return">
                   <type_NamedElement>
                     <classMoniker
-                      Id="47fb66a2-6f7a-4bb7-b7f9-7d02632b7768"
-                      LastKnownName="State"
+                      Id="ae8f52d8-161a-43d0-80c5-0bda72268530"
+                      LastKnownName="Neighborhood"
                       LastKnownLocation="Architecture.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -1242,8 +1275,8 @@
                   direction="In">
                   <type_NamedElement>
                     <classMoniker
-                      Id="47fb66a2-6f7a-4bb7-b7f9-7d02632b7768"
-                      LastKnownName="State"
+                      Id="ae8f52d8-161a-43d0-80c5-0bda72268530"
+                      LastKnownName="Neighborhood"
                       LastKnownLocation="Architecture.uml" />
                   </type_NamedElement>
                 </parameter>
@@ -1349,6 +1382,42 @@
               <classMoniker
                 Id="70c04e6d-f767-41a5-9c94-33472b486d28"
                 LastKnownName="RuleSet"
+                LastKnownLocation="Architecture.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="6250c987-3d6f-4f54-83c5-8389cc17215b"
+            name="gridCanvas"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="0d4c2a8c-6e5c-4ef7-86bf-df746d94a49b"
+                LastKnownName="Canvas"
+                LastKnownLocation="Architecture.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="b3e0d3c7-f736-4d77-8e49-8d36777a9860"
+            name="backlogGrids"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <undefinedTypeMoniker
+                Id="ebc44098-9f96-4ea8-a170-65fb13fcc802"
+                LastKnownName="ArrayList&lt;Grid&gt;"
                 LastKnownLocation="Architecture.uml" />
             </type_NamedElement>
           </property>
@@ -1497,6 +1566,134 @@
                     <classMoniker
                       Id="70c04e6d-f767-41a5-9c94-33472b486d28"
                       LastKnownName="RuleSet"
+                      LastKnownLocation="Architecture.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c6f7dd09-67c1-4321-b7ac-20f0612d6238"
+            name="getGridFromHistory"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="18992810-78e9-4f7a-8f74-5ed81f35cd50"
+                  name="i"
+                  direction="In">
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                      LastKnownName="Integer"
+                      LastKnownLocation="Architecture.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="293640e4-b47c-48c3-82a8-5a9907691595"
+        name="List&lt;List&lt;Cell&gt;&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="9a7527b1-0266-4bdd-bded-c0456bd6c7b1"
+        name="List&lt;Cell&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="9ddbc0b7-af5a-4abd-9c81-baf0bfd9c8c2"
+        name="List&lt;List&lt;&lt;Cell&gt;&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="7ba91d77-d261-4844-ba2c-fb414eb10acf"
+        name="ArrayList&lt;Rule&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="0d4c2a8c-6e5c-4ef7-86bf-df746d94a49b"
+        name="Canvas" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="36609c71-48b1-4de0-8610-48682c4074d8"
+        name="List&lt;Grid&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <undefinedType
+        Id="ebc44098-9f96-4ea8-a170-65fb13fcc802"
+        name="ArrayList&lt;Grid&gt;" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e32ce321-c180-4fc8-a7e9-3717ad03f5d2"
+        name="FileLoader"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedOperationsInternal>
+          <operation
+            Id="6c9d9942-b71e-472c-9c9b-d2cd81cfd8fe"
+            name="loadGrid"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8840abeb-a2fd-4c41-a671-c58151279fc4"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="bb2508a7-8917-4d4f-beb0-59ef9f28b257"
+                      LastKnownName="Grid"
+                      LastKnownLocation="Architecture.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b3881e36-7909-458e-976a-378f0a77f585"
+        name="FileSaver"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <ownedOperationsInternal>
+          <operation
+            Id="e07a6e82-26f7-43b1-94df-b6f39cfe53f5"
+            name="saveGrid"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="7e5026a7-4936-480e-b6b1-990041ef5e1e"
+                  name="g"
+                  direction="In">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="bb2508a7-8917-4d4f-beb0-59ef9f28b257"
+                      LastKnownName="Grid"
                       LastKnownLocation="Architecture.uml" />
                   </type_NamedElement>
                 </parameter>
