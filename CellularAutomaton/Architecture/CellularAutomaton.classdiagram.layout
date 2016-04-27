@@ -16,7 +16,7 @@
         <OperationElementListCompartment Id="aee2acf3-e386-4fb9-8902-f1b0a3c4ace4" absoluteBounds="7.89, 1.3863281125823657, 1.7200000000000002, 0.84179684768120455" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(6.875 : 1.66406248013179); (7.875 : 1.66406248013179)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="0..n" targetMultiplicity="1">
+    <associationConnector edgePoints="[(6.875 : 1.66406248013179); (7.875 : 1.66406248013179)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="0..n" targetMultiplicity="1">
       <associationMoniker Id="2b57a00c-75f7-495a-8379-fa010820f4b6" />
       <relativeChildShapes />
       <nodes>
@@ -68,7 +68,7 @@
         <OperationElementListCompartment Id="9a718912-c038-44bc-8965-da54271250cc" absoluteBounds="1.64, 6.1167968476812042, 2.2199999999999998, 1.4824218278129895" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(3.875 : 5.64648435761531); (4.625 : 5.64648435761531)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="1" targetMultiplicity="1">
+    <associationConnector edgePoints="[(3.875 : 5.64648435761531); (4.625 : 5.64648435761531)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="1" targetMultiplicity="1">
       <associationMoniker Id="5939dcae-3d4c-424b-8ed2-71b8523cda32" />
       <relativeChildShapes />
       <nodes>
@@ -87,7 +87,7 @@
         <classShapeMoniker Id="b9eab2d4-2941-46da-ad97-26d18160f61d" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.875 : 7.47460932781299); (8.46875 : 7.47460932781299); (8.46875 : 4.54296871523062)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="1" targetMultiplicity="2">
+    <associationConnector edgePoints="[(3.875 : 7.47460932781299); (8.46875 : 7.47460932781299); (8.46875 : 4.54296871523062)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="1" targetMultiplicity="2">
       <associationMoniker Id="488bacc0-a5ec-4841-9777-c7137c9fa102" />
       <relativeChildShapes />
       <nodes>
@@ -110,7 +110,7 @@
         <OperationElementListCompartment Id="e7ab9a4b-5c43-4670-a34d-cdac5908dd97" absoluteBounds="10.515, 3.6519530927141508, 2.2199999999999998, 1.8027343178788819" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(9.625 : 1.4374995); (11.625 : 1.4374995); (11.625 : 2.25)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="1" targetMultiplicity="1">
+    <associationConnector edgePoints="[(9.625 : 1.4374995); (11.625 : 1.4374995); (11.625 : 2.25)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="1" targetMultiplicity="1">
       <associationMoniker Id="84e2cf5e-26f0-4605-b113-2de9b8c6ce1a" />
       <relativeChildShapes />
       <nodes>
@@ -118,7 +118,7 @@
         <classShapeMoniker Id="84194b48-1371-4c85-87d8-f0ecf82d3c41" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(6.375 : 5.21484370529652); (8.38541666666667 : 5.21484370529652 : JumpStart); (8.55208333333333 : 5.21484370529652 : JumpEnd); (10.5 : 5.21484370529652)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110" sourceMultiplicity="1" targetMultiplicity="1">
+    <associationConnector edgePoints="[(6.375 : 5.21484370529652); (10.5 : 5.21484370529652)]" fixedFrom="NotFixed" fixedTo="NotFixed" customColor="113, 111, 110" sourceMultiplicity="1" targetMultiplicity="1">
       <associationMoniker Id="2b1a175a-933a-4734-bcb2-a8ecff62656b" />
       <relativeChildShapes />
       <nodes>

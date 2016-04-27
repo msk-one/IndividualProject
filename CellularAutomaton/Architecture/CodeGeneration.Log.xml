@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="file:///C:/PROGRAM FILES (X86)/MICROSOFT VISUAL STUDIO 14.0/COMMON7/IDE/EXTENSIONS/MICROSOFT/ARCHITECTURE TOOLS/EXTENSIBILITY/Logging/CodeGenLog.xslt"?>
+<Log xmlns="http://schemas.microsoft.com/VisualStudio/2010/CodeGen.RE.Log" Label="Code Generation/Text Transformation Log">
+  <MessageClass Name="Message" Label="Message" Option="Show informational messages" />
+  <MessageClass Name="Warning" Label="Warning" Option="Show warnings" />
+  <MessageClass Name="Error" Label="Error" Option="Show errors" />
+  <MessageClass Name="Property" Label="Property" Option="Show metadata" />
+  <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
+  <Message Timestamp="2016-04-27T11:05:49" Importance="High" Text="Code generation or text transformation started." />
+  <Message Timestamp="2016-04-27T11:05:49" Importance="Diagnostic" Text="Name = ClassTemplate" />
+  <Message Timestamp="2016-04-27T11:05:49" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2016-04-27T11:05:49" Importance="Diagnostic" Text="ProjectPath = ..\ArchitectureLib\ArchitectureLib.csproj" />
+  <Message Timestamp="2016-04-27T11:05:49" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-04-27T11:05:49" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-04-27T11:05:49" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2016-04-27T11:05:49" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4" />
+  <Message Timestamp="2016-04-27T11:05:49" Importance="Medium" Text="Architecture's Text Template Binding: 'ClassTemplate' will apply ClassTemplate.t4 to: 'Architecture::State' -  (Class), 'Architecture::Cell' -  (Class), 'Architecture::Grid' -  (Class), 'Architecture::Neighborhood' -  (Class), 'Architecture::Simulation' -  (Class), 'Architecture::Rule' -  (Class), 'Architecture::RuleSet' -  (Class), 'Architecture::FileLoader' -  (Class), 'Architecture::FileSaver' -  (Class) " />
+  <Message Timestamp="2016-04-27T11:06:26" Importance="Medium" Text="Project Added: C:\Users\Msk\Desktop\IndividualProject\CellularAutomaton\ArchitectureLib\ArchitectureLib.csproj" />
+  <Message Timestamp="2016-04-27T11:06:26" Importance="Medium" Text="'Architecture::State' -  (Class) : success (file created) - C:\Users\Msk\Desktop\IndividualProject\CellularAutomaton\ArchitectureLib\GeneratedCode\State.cs" />
+  <Message Timestamp="2016-04-27T11:06:27" Importance="Medium" Text="'Architecture::Cell' -  (Class) : success (file created) - C:\Users\Msk\Desktop\IndividualProject\CellularAutomaton\ArchitectureLib\GeneratedCode\Cell.cs" />
+  <Message Timestamp="2016-04-27T11:06:27" Importance="Medium" Text="'Architecture::Grid' -  (Class) : success (file created) - C:\Users\Msk\Desktop\IndividualProject\CellularAutomaton\ArchitectureLib\GeneratedCode\Grid.cs" />
+  <Message Timestamp="2016-04-27T11:06:28" Importance="Medium" Text="'Architecture::Neighborhood' -  (Class) : success (file created) - C:\Users\Msk\Desktop\IndividualProject\CellularAutomaton\ArchitectureLib\GeneratedCode\Neighborhood.cs" />
+  <Message Timestamp="2016-04-27T11:06:28" Importance="Medium" Text="'Architecture::Simulation' -  (Class) : success (file created) - C:\Users\Msk\Desktop\IndividualProject\CellularAutomaton\ArchitectureLib\GeneratedCode\Simulation.cs" />
+  <Message Timestamp="2016-04-27T11:06:28" Importance="Medium" Text="'Architecture::Rule' -  (Class) : success (file created) - C:\Users\Msk\Desktop\IndividualProject\CellularAutomaton\ArchitectureLib\GeneratedCode\Rule.cs" />
+  <Message Timestamp="2016-04-27T11:06:29" Importance="Medium" Text="'Architecture::RuleSet' -  (Class) : success (file created) - C:\Users\Msk\Desktop\IndividualProject\CellularAutomaton\ArchitectureLib\GeneratedCode\RuleSet.cs" />
+  <Message Timestamp="2016-04-27T11:06:29" Importance="Medium" Text="'Architecture::FileLoader' -  (Class) : success (file created) - C:\Users\Msk\Desktop\IndividualProject\CellularAutomaton\ArchitectureLib\GeneratedCode\FileLoader.cs" />
+  <Message Timestamp="2016-04-27T11:06:29" Importance="Medium" Text="'Architecture::FileSaver' -  (Class) : success (file created) - C:\Users\Msk\Desktop\IndividualProject\CellularAutomaton\ArchitectureLib\GeneratedCode\FileSaver.cs" />
+  <Message Timestamp="2016-04-27T11:06:29" Importance="Diagnostic" Text="Name = StructTemplate" />
+  <Message Timestamp="2016-04-27T11:06:29" Importance="Diagnostic" Text="Overwrite = True" />
+  <Message Timestamp="2016-04-27T11:06:29" Importance="Diagnostic" Text="ProjectPath = ..\ArchitectureLib\ArchitectureLib.csproj" />
+  <Message Timestamp="2016-04-27T11:06:29" Importance="Diagnostic" Text="TargetDirectory = GeneratedCode\{PackageStructure}" />
+  <Message Timestamp="2016-04-27T11:06:29" Importance="Diagnostic" Text="TargetName = {Name}" />
+  <Message Timestamp="2016-04-27T11:06:29" Importance="Diagnostic" Text="TemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2016-04-27T11:06:29" Importance="Diagnostic" Text="ResolvedTemplateFilePath = C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4" />
+  <Message Timestamp="2016-04-27T11:06:29" Importance="Medium" Text="Architecture's Text Template Binding: 'StructTemplate' will apply StructTemplate.t4 to: 'Architecture::State' -  (Class), 'Architecture::Cell' -  (Class), 'Architecture::Grid' -  (Class), 'Architecture::Neighborhood' -  (Class), 'Architecture::Simulation' -  (Class), 'Architecture::Rule' -  (Class), 'Architecture::RuleSet' -  (Class), 'Architecture::FileLoader' -  (Class), 'Architecture::FileSaver' -  (Class) " />
+  <Message Timestamp="2016-04-27T11:06:30" Importance="Diagnostic" Text="'Architecture::State' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-04-27T11:06:30" Importance="Diagnostic" Text="'Architecture::Cell' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-04-27T11:06:30" Importance="Diagnostic" Text="'Architecture::Grid' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-04-27T11:06:30" Importance="Diagnostic" Text="'Architecture::Neighborhood' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-04-27T11:06:30" Importance="Diagnostic" Text="'Architecture::Simulation' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-04-27T11:06:30" Importance="Diagnostic" Text="'Architecture::Rule' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-04-27T11:06:30" Importance="Diagnostic" Text="'Architecture::RuleSet' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-04-27T11:06:30" Importance="Diagnostic" Text="'Architecture::FileLoader' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-04-27T11:06:30" Importance="Diagnostic" Text="'Architecture::FileSaver' -  (Class): no file generated because the 'AppliesToElement' method of the template 'StructTemplate.t4' evaluated to false." />
+  <Message Timestamp="2016-04-27T11:06:31" Importance="Diagnostic" Text="The selection included 9 elements which were not bound to a template." />
+  <Message Timestamp="2016-04-27T11:06:31" Importance="Diagnostic" Text="'Architecture::' -  (Association): no bound template." />
+  <Message Timestamp="2016-04-27T11:06:31" Importance="Diagnostic" Text="'Architecture::' -  (Association): no bound template." />
+  <Message Timestamp="2016-04-27T11:06:31" Importance="Diagnostic" Text="'Architecture::' -  (Association): no bound template." />
+  <Message Timestamp="2016-04-27T11:06:31" Importance="Diagnostic" Text="'Architecture::' -  (Association): no bound template." />
+  <Message Timestamp="2016-04-27T11:06:31" Importance="Diagnostic" Text="'Architecture::' -  (Association): no bound template." />
+  <Message Timestamp="2016-04-27T11:06:31" Importance="Diagnostic" Text="'Architecture::' -  (Association): no bound template." />
+  <Message Timestamp="2016-04-27T11:06:31" Importance="Diagnostic" Text="'Architecture::' -  (Association): no bound template." />
+  <Message Timestamp="2016-04-27T11:06:31" Importance="Diagnostic" Text="'Architecture::' -  (Association): no bound template." />
+  <Message Timestamp="2016-04-27T11:06:31" Importance="Diagnostic" Text="'Architecture::' -  (Association): no bound template." />
+  <Message Timestamp="2016-04-27T11:06:31" Importance="High" Text="Code generation complete. Errors: 0. Warnings: 0." />
+</Log>
