@@ -1,0 +1,17 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CellularAutomaton.Other"
+        xmlns:Properties="clr-namespace:CellularAutomaton.Properties" x:Class="CellularAutomaton.Other.AboutWindow"
+        mc:Ignorable="d"
+        Title="About program" Height="300" Width="300" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow" Background="White">
+    <Grid>
+        <Label x:Name="Label" Content="Cellular Automaton" Margin="55,10,59,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18.667"/>
+        <Label x:Name="Label2" Content="Individual Project work" Margin="55,55,59,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="Label5" Content="szklarskim@student.mini.pw.edu.pl" Margin="45,0,44,22" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="26" VerticalAlignment="Bottom" FontSize="10.667"/>
+        <Label x:Name="Label3" Content="v. 0.1.1 build 20" Margin="55,99,59,0" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+        <Label x:Name="Label4" Content="    Created by:&#xD;&#xA;Michał Szklarski" Margin="55,0,59,53" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"></Label>
+    </Grid>
+</Window>

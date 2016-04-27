@@ -23,64 +23,44 @@ namespace CellularAutomaton
             set;
         }
 
-        public virtual Canvas gridCanvas
+        public Canvas gridCanvas
         {
             get;
             set;
         }
 
-        public virtual List<Grid> backlogGrids
+        public List<Grid> backlogGrids
         {
             get;
             set;
         }
 
-        public virtual void play()
+        public void play()
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual void pause()
+        public void pause()
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual void stop()
+        public void stop()
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual void changeRuleSet(RuleSet rs)
+        public void changeRuleSet(RuleSet rs)
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual void clearRuleSet()
+        public void clearRuleSet()
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual Grid getGrid()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public virtual RuleSet getRuleSet()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public virtual int getTick()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public virtual void setRuleSet(RuleSet rs)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public virtual void getGridFromHistory(int i)
+        public void getGridFromHistory(int i)
         {
             throw new System.NotImplementedException();
         }

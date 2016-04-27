@@ -2,7 +2,7 @@
 {
     public class FileLoader
     {
-        public virtual Grid loadGrid()
+        public Grid loadGrid()
         {
             throw new System.NotImplementedException();
         }

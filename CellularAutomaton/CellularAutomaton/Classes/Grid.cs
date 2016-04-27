@@ -1,41 +1,37 @@
-﻿namespace CellularAutomaton
+﻿using System.Collections.Generic;
+
+namespace CellularAutomaton
 {
-    public class State
+    public class Grid
     {
-        private string name
+        public List<List<Cell>> cells
         {
             get;
             set;
         }
 
-        private int type
+        public Simulation Simulation
         {
             get;
             set;
         }
 
-        public virtual Cell Cell
-        {
-            get;
-            set;
-        }
-
-        public virtual string getName()
+        public void clear()
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual void setName(string n)
+        public void generate()
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual int getType()
+        public void zoomin()
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual void setType(int t)
+        public void zoomout()
         {
             throw new System.NotImplementedException();
         }

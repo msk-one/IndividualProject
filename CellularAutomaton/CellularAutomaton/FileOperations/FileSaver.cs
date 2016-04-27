@@ -2,7 +2,7 @@
 {
     public class FileSaver
     {
-        public virtual void saveGrid(Grid g)
+        public void saveGrid(Grid g)
         {
             throw new System.NotImplementedException();
         }

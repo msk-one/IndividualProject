@@ -2,36 +2,31 @@
 
 namespace CellularAutomaton
 {
-    public class Grid
+    public class RuleSet
     {
-        public virtual List<List<Cell>> cells
+        private List<Rule> rules
         {
             get;
             set;
         }
 
-        public virtual Simulation Simulation
+        public Simulation Simulation
         {
             get;
             set;
         }
 
-        public virtual void clear()
+        public void getRule(int i)
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual void generate()
+        public void applyRules()
         {
             throw new System.NotImplementedException();
         }
 
-        public virtual void zoomin()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public virtual void zoomout()
+        public void checkRuleSetValidity()
         {
             throw new System.NotImplementedException();
         }
