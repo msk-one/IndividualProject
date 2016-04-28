@@ -14,14 +14,16 @@ using System.Windows.Shapes;
 
 namespace CellularAutomaton.RuleSettingsEditor
 {
-    /// <summary>
-    /// Interaction logic for RuleSettingsEditor.xaml
-    /// </summary>
     public partial class RuleSettingsEditor : Window
     {
         public RuleSettingsEditor()
         {
             InitializeComponent();
+        }
+
+        private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

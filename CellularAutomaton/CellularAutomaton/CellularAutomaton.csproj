@@ -82,6 +82,9 @@
     </ApplicationDefinition>
     <Compile Include="Classes\Rule.cs" />
     <Compile Include="Classes\RuleSet.cs" />
+    <Compile Include="MainWindow\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Other\ProgramVersion.cs" />
     <Compile Include="Other\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
@@ -91,10 +94,6 @@
     </Compile>
     <Compile Include="Simulation.cs" />
     <Compile Include="Classes\State.cs" />
-    <Page Include="MainWindow\MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -103,10 +102,10 @@
     <Compile Include="FileOperations\FileLoader.cs" />
     <Compile Include="FileOperations\FileSaver.cs" />
     <Compile Include="Classes\Grid.cs" />
-    <Compile Include="MainWindow\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
+    <Page Include="MainWindow\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Other\AboutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

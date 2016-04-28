@@ -5,8 +5,71 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CellularAutomaton.RuleSettingsEditor"
         mc:Ignorable="d"
-        Title="RuleSettingsEditor" Height="300" Width="300" ShowInTaskbar="False">
-    <Grid>
-        
+        Title="Settings and rule management" Height="659" Width="397" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <DrawingBrush x:Key="GridTile" Stretch="None" TileMode="Tile"
+              Viewport="0,0 30,30" ViewportUnits="Absolute">
+            <DrawingBrush.Drawing>
+                <GeometryDrawing>
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+                            <LineGeometry StartPoint="0,0" EndPoint="30,0" />
+                            <LineGeometry StartPoint="0,30" EndPoint="0,0" />
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                    <GeometryDrawing.Pen>
+                        <Pen Thickness="2" Brush="Black" />
+                    </GeometryDrawing.Pen>
+                </GeometryDrawing>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
+
+        <DrawingBrush x:Key="OffsetGrid" Stretch="None" AlignmentX="Left" AlignmentY="Top">
+            <DrawingBrush.Transform>
+                <TranslateTransform X="0" Y="0" />
+            </DrawingBrush.Transform>
+            <DrawingBrush.Drawing>
+                <GeometryDrawing Brush="{StaticResource GridTile}" >
+                    <GeometryDrawing.Geometry>
+                        <RectangleGeometry Rect="0,0 200,200" />
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
+    </Window.Resources>
+
+    <Grid Margin="0,0,0,1">
+        <Button x:Name="button" Content="OK" HorizontalAlignment="Right" Margin="0,589,10,10" Width="75"/>
+        <Button x:Name="button1" Content="Apply" HorizontalAlignment="Right" Margin="0,589,90,10" Width="75"/>
+        <Button x:Name="button2" Content="Cancel" HorizontalAlignment="Left" Margin="10,589,0,10" Width="75"/>
+        <GroupBox x:Name="groupBox" Header="Rule Sets" Margin="10,10,10,0" VerticalAlignment="Top" Height="186">
+            <ListBox x:Name="listBox" Margin="10,10,10,0" Height="140" VerticalAlignment="Top">
+                <ListBoxItem Content="Preset 1" Selected="ListBoxItem_Selected"/>
+                <ListBoxItem Content="Preset 2" Selected="ListBoxItem_Selected"/>
+                <ListBoxItem Content="Preset 3" Selected="ListBoxItem_Selected"/>
+                <ListBoxItem Content="Custom 1" Selected="ListBoxItem_Selected"/>
+                <ListBoxItem Content="Custom 2" Selected="ListBoxItem_Selected"/>
+            </ListBox>
+        </GroupBox>
+        <GroupBox x:Name="groupBox1" Header="Custom Rule Editor" Margin="10,0,10,40" Height="383" VerticalAlignment="Bottom">
+            <Grid Margin="10">
+                <Canvas HorizontalAlignment="Left" Background="{StaticResource OffsetGrid}" Height="152" Margin="10,36,0,0" VerticalAlignment="Top" Width="152"/>
+                <Label x:Name="label" Content="Neighborhood (5x5):" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="button3" Content="Add new custom RuleSet" Margin="10,292,177,10"/>
+                <ListBox x:Name="listBox1" Height="152" Margin="167,36,10,0" VerticalAlignment="Top" IsSynchronizedWithCurrentItem="False">
+                    <ListBoxItem Content="My Rule 1"/>
+                    <ListBoxItem Content="My Rule 2"/>
+                </ListBox>
+                <Label x:Name="label1" Content="Rules:" HorizontalAlignment="Left" Margin="167,5,0,0" VerticalAlignment="Top"/>
+                <TextBox x:Name="textBox" Margin="10,216,10,100" TextWrapping="Wrap" Text="Current Rule" IsEnabled="False"/>
+                <Label x:Name="label2" Content="Current rule:" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top"/>
+                <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="10,246,0,0" VerticalAlignment="Top" Width="86" Height="24"/>
+                <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="96,246,0,0" VerticalAlignment="Top" Width="48" Height="24"/>
+                <ComboBox x:Name="comboBox2" HorizontalAlignment="Left" Margin="144,246,0,0" VerticalAlignment="Top" Width="85" Height="24"/>
+                <ComboBox x:Name="comboBox3" Margin="229,246,10,71"/>
+                <Button x:Name="button4" Content="Add new rule" HorizontalAlignment="Left" Margin="239,292,0,0" VerticalAlignment="Top" Width="90" Height="39"/>
+            </Grid>
+        </GroupBox>
     </Grid>
 </Window>
