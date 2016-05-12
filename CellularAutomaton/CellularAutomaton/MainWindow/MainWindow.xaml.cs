@@ -82,12 +82,12 @@ namespace CellularAutomaton.MainWindow
 
         private void MenuItem_Click_4(object sender, RoutedEventArgs e)
         {
-            mainCanvas.Background = new SolidColorBrush(Color.FromRgb(255,255,255));
+            mainCanvas.Children.Clear();
         }
 
         private void button6_Click(object sender, RoutedEventArgs e)
         {
-            mainCanvas.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            mainCanvas.Children.Clear();
         }
 
         private void MenuItem_Click_5(object sender, RoutedEventArgs e)
@@ -98,52 +98,139 @@ namespace CellularAutomaton.MainWindow
 
         private void button4_Click(object sender, RoutedEventArgs e)
         {
-            int currentWidth = Convert.ToInt32(StartPoint.X);
-            int currentHeight = Convert.ToInt32(StartPoint2.Y);
+            //TODO: fix it to use WPF scale
 
-            if (currentWidth < 120 && currentWidth >= 10)
-            {
-                gridSize = "0,0," + (currentWidth + 10) + "," + (currentHeight + 10);
-                NotifyPropertyChanged("gridSize");
-                StartPoint = new Point(currentWidth + 10, 0);
-                NotifyPropertyChanged("StartPoint");
-                StartPoint2 = new Point(0, currentHeight + 10);
-                NotifyPropertyChanged("StartPoint2");
-            }
-            else if (currentWidth < 10 && currentWidth >= 3)
-            {
-                gridSize = "0,0," + (currentWidth + 1) + "," + (currentHeight + 1);
-                NotifyPropertyChanged("gridSize");
-                StartPoint = new Point(currentWidth + 1, 0);
-                NotifyPropertyChanged("StartPoint");
-                StartPoint2 = new Point(0, currentHeight + 1);
-                NotifyPropertyChanged("StartPoint2");
-            }
+            //int currentWidth = Convert.ToInt32(StartPoint.X);
+            //int currentHeight = Convert.ToInt32(StartPoint2.Y);
+
+            //if (currentWidth < 120 && currentWidth >= 10)
+            //{
+            //    gridSize = "0,0," + (currentWidth + 10) + "," + (currentHeight + 10);
+            //    NotifyPropertyChanged("gridSize");
+            //    StartPoint = new Point(currentWidth + 10, 0);
+            //    NotifyPropertyChanged("StartPoint");
+            //    StartPoint2 = new Point(0, currentHeight + 10);
+            //    NotifyPropertyChanged("StartPoint2");
+
+            //    foreach (Rectangle rect in mainCanvas.Children)
+            //    {
+            //        rect.Width = currentWidth + 10;
+            //        rect.Height = currentHeight + 10;
+            //        Tuple<int, int> snappedCoords = snapToGrid(Canvas.GetLeft(rect) + 1, Canvas.GetTop(rect) + 1, currentWidth + 10);
+            //        Canvas.SetTop(rect, snappedCoords.Item2);
+            //        Canvas.SetLeft(rect, snappedCoords.Item1);
+            //    }
+            //}
+            //else if (currentWidth < 10 && currentWidth >= 4)
+            //{
+            //    gridSize = "0,0," + (currentWidth + 1) + "," + (currentHeight + 1);
+            //    NotifyPropertyChanged("gridSize");
+            //    StartPoint = new Point(currentWidth + 1, 0);
+            //    NotifyPropertyChanged("StartPoint");
+            //    StartPoint2 = new Point(0, currentHeight + 1);
+            //    NotifyPropertyChanged("StartPoint2");
+
+            //    foreach (Rectangle rect in mainCanvas.Children)
+            //    {
+            //        rect.Width = currentWidth + 1;
+            //        rect.Height = currentHeight + 1;
+            //        Tuple<int, int> snappedCoords = snapToGrid(Canvas.GetLeft(rect)+1, Canvas.GetTop(rect) + 1, currentWidth + 1);
+            //        Canvas.SetTop(rect, snappedCoords.Item2);
+            //        Canvas.SetLeft(rect, snappedCoords.Item1);
+            //    }
+            //}
         }
 
         private void button5_Click(object sender, RoutedEventArgs e)
         {
-            int currentWidth = Convert.ToInt32(StartPoint.X);
-            int currentHeight = Convert.ToInt32(StartPoint2.Y);
+            //TODO: fix it to use WPF scale
 
-            if (currentWidth > 10)
-            {
-                gridSize = "0,0," + (currentWidth - 10) + "," + (currentHeight - 10);
-                NotifyPropertyChanged("gridSize");
-                StartPoint = new Point(currentWidth - 10, 0);
-                NotifyPropertyChanged("StartPoint");
-                StartPoint2 = new Point(0, currentHeight - 10);
-                NotifyPropertyChanged("StartPoint2");
-            }
-            else if(currentWidth < 11 && currentWidth > 3)
-            {
-                gridSize = "0,0," + (currentWidth - 1) + "," + (currentHeight - 1);
-                NotifyPropertyChanged("gridSize");
-                StartPoint = new Point(currentWidth - 1, 0);
-                NotifyPropertyChanged("StartPoint");
-                StartPoint2 = new Point(0, currentHeight - 1);
-                NotifyPropertyChanged("StartPoint2");
-            }
+            //int currentWidth = Convert.ToInt32(StartPoint.X);
+            //int currentHeight = Convert.ToInt32(StartPoint2.Y);
+
+            //if (currentWidth > 10)
+            //{
+            //    gridSize = "0,0," + (currentWidth - 10) + "," + (currentHeight - 10);
+            //    NotifyPropertyChanged("gridSize");
+            //    StartPoint = new Point(currentWidth - 10, 0);
+            //    NotifyPropertyChanged("StartPoint");
+            //    StartPoint2 = new Point(0, currentHeight - 10);
+            //    NotifyPropertyChanged("StartPoint2");
+
+            //    foreach (Rectangle rect in mainCanvas.Children)
+            //    {
+            //        rect.Width = currentWidth - 10;
+            //        rect.Height = currentHeight - 10;
+            //        Tuple<int, int> snappedCoords = snapToGrid(Canvas.GetLeft(rect) + 1, Canvas.GetTop(rect) + 1, currentWidth - 10);
+            //        Canvas.SetTop(rect, snappedCoords.Item2);
+            //        Canvas.SetLeft(rect, snappedCoords.Item1);
+            //    }
+            //}
+            //else if(currentWidth < 11 && currentWidth > 4)
+            //{
+            //    gridSize = "0,0," + (currentWidth - 1) + "," + (currentHeight - 1);
+            //    NotifyPropertyChanged("gridSize");
+            //    StartPoint = new Point(currentWidth - 1, 0);
+            //    NotifyPropertyChanged("StartPoint");
+            //    StartPoint2 = new Point(0, currentHeight - 1);
+            //    NotifyPropertyChanged("StartPoint2");
+
+            //    foreach (Rectangle rect in mainCanvas.Children)
+            //    {
+            //        rect.Width = currentWidth - 1;
+            //        rect.Height = currentHeight - 1;
+            //        Tuple<int, int> snappedCoords = snapToGrid(Canvas.GetLeft(rect) + 1, Canvas.GetTop(rect) + 1, currentWidth - 1);
+            //        Canvas.SetTop(rect, snappedCoords.Item2);
+            //        Canvas.SetLeft(rect, snappedCoords.Item1);
+            //    }
+            //}
+        }
+
+        private Tuple<int, int> snapToGrid(double x, double y, int snapSize)
+        {
+            int toSnapX = Convert.ToInt32(x);
+            int toSnapY = Convert.ToInt32(y);
+
+            int snappedX = toSnapX - (toSnapX % snapSize);
+            int snappedY = toSnapY - (toSnapY % snapSize);
+
+            return new Tuple<int, int>(snappedX+1, snappedY+1);
+        }
+
+        private void mainCanvas_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            int size = Convert.ToInt32(StartPoint.X);
+            
+            Rectangle rect = new Rectangle();
+
+            rect.Width = size-1;
+            rect.Height = size-1;
+
+            SolidColorBrush cellMarker = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+            rect.Fill = cellMarker;
+
+            Tuple<int, int> snappedCoords = snapToGrid(e.GetPosition(mainCanvas).X, e.GetPosition(mainCanvas).Y, size);
+            Canvas.SetTop(rect, snappedCoords.Item2);
+            Canvas.SetLeft(rect, snappedCoords.Item1);
+            mainCanvas.Children.Add(rect);
+        }
+
+        private void mainCanvas_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            int size = Convert.ToInt32(StartPoint.X);
+
+            Rectangle rect = new Rectangle();
+
+            rect.Width = size - 1;
+            rect.Height = size - 1;
+
+            SolidColorBrush cellMarker = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            rect.Fill = cellMarker;
+
+            Tuple<int, int> snappedCoords = snapToGrid(e.GetPosition(mainCanvas).X, e.GetPosition(mainCanvas).Y, size);
+            Canvas.SetTop(rect, snappedCoords.Item2);
+            Canvas.SetLeft(rect, snappedCoords.Item1);
+            mainCanvas.Children.Add(rect);
         }
     }
 }

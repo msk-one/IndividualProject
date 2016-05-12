@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CellularAutomaton.MainWindow"
         mc:Ignorable="d"
-        Title="Cellular Automaton" Height="768" Width="1024" MinWidth="1024" MinHeight="768">
+        Title="Cellular Automaton" Height="768" Width="1024" MinWidth="1024" MinHeight="768" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <DrawingBrush x:Name="mainCanvasDB" x:Key="GridTile" Stretch="None" TileMode="Tile"
@@ -56,7 +56,7 @@
             <StatusBarItem Content="Ready" Height="20" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
         </StatusBar>
 
-        <Canvas x:Name="mainCanvas" HorizontalAlignment="Left" Margin="0,26,0,20" Width="774" Background="{StaticResource OffsetGrid}">
+        <Canvas x:Name="mainCanvas" HorizontalAlignment="Left" Margin="0,26,0,20" Width="774" Background="{StaticResource OffsetGrid}" MouseLeftButtonUp="mainCanvas_MouseLeftButtonUp" MouseRightButtonUp="mainCanvas_MouseRightButtonUp">
         </Canvas>
         <GridSplitter x:Name="gridSplitter" Margin="779,26,235,20" HorizontalAlignment="Stretch"/>
         <StackPanel Margin="0,26,0,20" HorizontalAlignment="Right" Width="235" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}">
