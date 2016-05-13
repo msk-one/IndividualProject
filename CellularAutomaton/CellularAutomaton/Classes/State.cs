@@ -2,19 +2,13 @@
 {
     public class State
     {
-        private string name
+        public string name
         {
             get;
             set;
         }
 
-        private int type
-        {
-            get;
-            set;
-        }
-
-        public  Cell Cell
+        public int type
         {
             get;
             set;

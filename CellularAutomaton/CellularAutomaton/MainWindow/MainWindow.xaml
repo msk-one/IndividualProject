@@ -8,14 +8,13 @@
         Title="Cellular Automaton" Height="768" Width="1024" MinWidth="1024" MinHeight="768" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
-        <DrawingBrush x:Name="mainCanvasDB" x:Key="GridTile" Stretch="None" TileMode="Tile"
-              Viewport="{Binding gridSize, BindsDirectlyToSource=True, ElementName=window, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ViewportUnits="Absolute">
+        <DrawingBrush x:Name="mainCanvasDB" x:Key="GridTile" Stretch="None" TileMode="Tile" ViewportUnits="Absolute" Viewport="0,0,10,10">
             <DrawingBrush.Drawing>
                 <GeometryDrawing>
                     <GeometryDrawing.Geometry>
                         <GeometryGroup>
-                            <LineGeometry x:Name="StartPoint" StartPoint="0,0" EndPoint="{Binding StartPoint, ElementName=window}" />
-                            <LineGeometry x:Name="StartPoint2" StartPoint="{Binding StartPoint2, ElementName=window}" EndPoint="0,0" />
+                            <LineGeometry x:Name="StartPoint" StartPoint="0,0" EndPoint="0,10" />
+                            <LineGeometry x:Name="StartPoint2" EndPoint="0,0" StartPoint="10,0" />
                         </GeometryGroup>
                     </GeometryDrawing.Geometry>
                     <GeometryDrawing.Pen>
@@ -32,13 +31,23 @@
             <DrawingBrush.Drawing>
                 <GeometryDrawing Brush="{StaticResource GridTile}" >
                     <GeometryDrawing.Geometry>
-                        <RectangleGeometry x:Name="BoardSize" Rect="{Binding gridMaxSize, BindsDirectlyToSource=True, ElementName=window, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <RectangleGeometry x:Name="BoardSize" Rect="0,0,771,691" />
                     </GeometryDrawing.Geometry>
                 </GeometryDrawing>
             </DrawingBrush.Drawing>
         </DrawingBrush>
     </Window.Resources>
     <Grid x:Name="grid">
+        <Canvas x:Name="mainCanvas" HorizontalAlignment="Left" Margin="0,26,0,20" Width="774" Background="{StaticResource OffsetGrid}" MouseLeftButtonUp="mainCanvas_MouseLeftButtonUp" MouseRightButtonUp="mainCanvas_MouseRightButtonUp" RenderTransformOrigin="0.5,0.5" ClipToBounds="True" Height="693" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+            <Canvas.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="{Binding scaleOfGrid, ElementName=window, FallbackValue=1, Mode=TwoWay, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True, TargetNullValue=1, UpdateSourceTrigger=PropertyChanged}" ScaleY="{Binding scaleOfGrid, ElementName=window, FallbackValue=1, Mode=TwoWay, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True, TargetNullValue=1, UpdateSourceTrigger=PropertyChanged}"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Canvas.RenderTransform>
+        </Canvas>
         <Menu x:Name="menu" Height="26" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}">
             <MenuItem Header="File" Height="26">
                 <MenuItem Header="New" HorizontalAlignment="Left" Width="140" Click="MenuItem_Click_4"/>
@@ -56,8 +65,6 @@
             <StatusBarItem Content="Ready" Height="20" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
         </StatusBar>
 
-        <Canvas x:Name="mainCanvas" HorizontalAlignment="Left" Margin="0,26,0,20" Width="774" Background="{StaticResource OffsetGrid}" MouseLeftButtonUp="mainCanvas_MouseLeftButtonUp" MouseRightButtonUp="mainCanvas_MouseRightButtonUp">
-        </Canvas>
         <GridSplitter x:Name="gridSplitter" Margin="779,26,235,20" HorizontalAlignment="Stretch"/>
         <StackPanel Margin="0,26,0,20" HorizontalAlignment="Right" Width="235" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}">
             <GroupBox x:Name="groupBox" Header="Simulation Control" Height="190">
@@ -77,7 +84,7 @@
                     <Button x:Name="button6" Content="Clear" Margin="0,10,0,0" Click="button6_Click"/>
                 </StackPanel>
             </GroupBox>
-            <Label x:Name="label" Content="{Binding gridSize, ElementName=window, IsAsync=True, Mode=TwoWay, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+            <Label x:Name="label" Content="{Binding scaleOfGrid, ElementName=window, IsAsync=True, Mode=TwoWay, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
 
         </StackPanel>
 

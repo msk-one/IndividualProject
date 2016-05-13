@@ -2,19 +2,19 @@
 {
     public class Cell
     {
-        private int x
+        public int x
         {
             get;
             set;
         }
 
-        private int y
+        public int y
         {
             get;
             set;
         }
 
-        private State currentState
+        public State currentState
         {
             get;
             set;

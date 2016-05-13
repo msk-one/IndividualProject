@@ -5,7 +5,7 @@ namespace CellularAutomaton
 {
     public class Simulation
     {
-        private Grid grid
+        public Grid grid
         {
             get;
             set;

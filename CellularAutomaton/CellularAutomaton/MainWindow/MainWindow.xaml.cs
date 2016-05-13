@@ -21,11 +21,17 @@ namespace CellularAutomaton.MainWindow
 {
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        public string gridSize {
-            get;
-            set;
-        }
-        public string gridMaxSize { get; set; }
+
+        public Grid mainGrid;
+        public Simulation mainSim;
+        State EMPTY;
+        State ALIVE;
+        State DEAD;
+
+        public int sizeOfCell { get; set; }
+        public int scaleOfGrid { get; set; }
+        public int gridMaxSize { get; set; }
+
         public Point StartPoint { get; set; }
         public Point StartPoint2 { get; set; }
 
@@ -35,10 +41,47 @@ namespace CellularAutomaton.MainWindow
 
         public MainWindow()
         {
-            gridSize = "0,0,10,10";
-            gridMaxSize = "0,0,1024,1024";
-            StartPoint = new Point(10, 0);
-            StartPoint2 = new Point(0, 10);
+            mainGrid = new Grid();
+            mainSim = new Simulation();
+
+            EMPTY = new State();
+            EMPTY.name = "EMPTY";
+            EMPTY.type = 0;
+
+            ALIVE = new State();
+            ALIVE.name = "ALIVE";
+            ALIVE.type = 1;
+
+            DEAD = new State();
+            DEAD.name = "DEAD";
+            DEAD.type = 2;
+
+            this.sizeOfCell = 10;
+            this.gridMaxSize = 1024;
+            this.scaleOfGrid = 1;
+            StartPoint = new Point(0, 10);
+            StartPoint2 = new Point(10, 0);
+
+            mainGrid.cells = new List<Cell>(1024*1024);
+            for (int i = 0; i <= 1024; i++)
+            {
+                for (int j = 0; j <= 1024; j++)
+                {
+                    Cell tmpCell = new Cell()
+                    {
+                        x = i,
+                        y = j,
+                        currentState = EMPTY,
+                        Grid = mainGrid
+                    };
+
+                    mainGrid.cells.Add(tmpCell);
+                }
+            }
+
+            mainSim.gridCanvas = mainCanvas;
+            mainGrid.Simulation = mainSim;
+            mainSim.grid = mainGrid;
 
             InitializeComponent();
         }
@@ -98,92 +141,39 @@ namespace CellularAutomaton.MainWindow
 
         private void button4_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: fix it to use WPF scale
-
-            //int currentWidth = Convert.ToInt32(StartPoint.X);
-            //int currentHeight = Convert.ToInt32(StartPoint2.Y);
-
-            //if (currentWidth < 120 && currentWidth >= 10)
-            //{
-            //    gridSize = "0,0," + (currentWidth + 10) + "," + (currentHeight + 10);
-            //    NotifyPropertyChanged("gridSize");
-            //    StartPoint = new Point(currentWidth + 10, 0);
-            //    NotifyPropertyChanged("StartPoint");
-            //    StartPoint2 = new Point(0, currentHeight + 10);
-            //    NotifyPropertyChanged("StartPoint2");
-
-            //    foreach (Rectangle rect in mainCanvas.Children)
-            //    {
-            //        rect.Width = currentWidth + 10;
-            //        rect.Height = currentHeight + 10;
-            //        Tuple<int, int> snappedCoords = snapToGrid(Canvas.GetLeft(rect) + 1, Canvas.GetTop(rect) + 1, currentWidth + 10);
-            //        Canvas.SetTop(rect, snappedCoords.Item2);
-            //        Canvas.SetLeft(rect, snappedCoords.Item1);
-            //    }
-            //}
-            //else if (currentWidth < 10 && currentWidth >= 4)
-            //{
-            //    gridSize = "0,0," + (currentWidth + 1) + "," + (currentHeight + 1);
-            //    NotifyPropertyChanged("gridSize");
-            //    StartPoint = new Point(currentWidth + 1, 0);
-            //    NotifyPropertyChanged("StartPoint");
-            //    StartPoint2 = new Point(0, currentHeight + 1);
-            //    NotifyPropertyChanged("StartPoint2");
-
-            //    foreach (Rectangle rect in mainCanvas.Children)
-            //    {
-            //        rect.Width = currentWidth + 1;
-            //        rect.Height = currentHeight + 1;
-            //        Tuple<int, int> snappedCoords = snapToGrid(Canvas.GetLeft(rect)+1, Canvas.GetTop(rect) + 1, currentWidth + 1);
-            //        Canvas.SetTop(rect, snappedCoords.Item2);
-            //        Canvas.SetLeft(rect, snappedCoords.Item1);
-            //    }
-            //}
+            if (scaleOfGrid < 15)
+            {
+                scaleOfGrid += 1;
+                NotifyPropertyChanged("scaleOfGrid");
+            }
         }
 
         private void button5_Click(object sender, RoutedEventArgs e)
         {
-            //TODO: fix it to use WPF scale
+            if (scaleOfGrid > 1)
+            {
+                scaleOfGrid -= 1;
+                NotifyPropertyChanged("scaleOfGrid");
+            }
+        }
 
-            //int currentWidth = Convert.ToInt32(StartPoint.X);
-            //int currentHeight = Convert.ToInt32(StartPoint2.Y);
+        private Tuple<int, int> getCellCoordsfromCanvas(int x, int y)
+        {
+            int cX = x - (x % this.sizeOfCell);
+            int cY = y - (y % this.sizeOfCell);
 
-            //if (currentWidth > 10)
-            //{
-            //    gridSize = "0,0," + (currentWidth - 10) + "," + (currentHeight - 10);
-            //    NotifyPropertyChanged("gridSize");
-            //    StartPoint = new Point(currentWidth - 10, 0);
-            //    NotifyPropertyChanged("StartPoint");
-            //    StartPoint2 = new Point(0, currentHeight - 10);
-            //    NotifyPropertyChanged("StartPoint2");
+            cX /= 10;
+            cY /= 10;
 
-            //    foreach (Rectangle rect in mainCanvas.Children)
-            //    {
-            //        rect.Width = currentWidth - 10;
-            //        rect.Height = currentHeight - 10;
-            //        Tuple<int, int> snappedCoords = snapToGrid(Canvas.GetLeft(rect) + 1, Canvas.GetTop(rect) + 1, currentWidth - 10);
-            //        Canvas.SetTop(rect, snappedCoords.Item2);
-            //        Canvas.SetLeft(rect, snappedCoords.Item1);
-            //    }
-            //}
-            //else if(currentWidth < 11 && currentWidth > 4)
-            //{
-            //    gridSize = "0,0," + (currentWidth - 1) + "," + (currentHeight - 1);
-            //    NotifyPropertyChanged("gridSize");
-            //    StartPoint = new Point(currentWidth - 1, 0);
-            //    NotifyPropertyChanged("StartPoint");
-            //    StartPoint2 = new Point(0, currentHeight - 1);
-            //    NotifyPropertyChanged("StartPoint2");
+            return new Tuple<int, int>(cX, cY);
+        }
 
-            //    foreach (Rectangle rect in mainCanvas.Children)
-            //    {
-            //        rect.Width = currentWidth - 1;
-            //        rect.Height = currentHeight - 1;
-            //        Tuple<int, int> snappedCoords = snapToGrid(Canvas.GetLeft(rect) + 1, Canvas.GetTop(rect) + 1, currentWidth - 1);
-            //        Canvas.SetTop(rect, snappedCoords.Item2);
-            //        Canvas.SetLeft(rect, snappedCoords.Item1);
-            //    }
-            //}
+        private Tuple<int, int> getCanvasCoordsFromCell(Cell cell)
+        {
+            int cvX = cell.x * 10;
+            int cvY = cell.y * 10;
+
+            return new Tuple<int, int>(cvX+1, cvY+1);
         }
 
         private Tuple<int, int> snapToGrid(double x, double y, int snapSize)
@@ -198,39 +188,41 @@ namespace CellularAutomaton.MainWindow
         }
 
         private void mainCanvas_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            int size = Convert.ToInt32(StartPoint.X);
-            
+        {    
             Rectangle rect = new Rectangle();
 
-            rect.Width = size-1;
-            rect.Height = size-1;
+            rect.Width = this.sizeOfCell - 1;
+            rect.Height = this.sizeOfCell - 1;
 
             SolidColorBrush cellMarker = new SolidColorBrush(Color.FromRgb(0, 255, 0));
             rect.Fill = cellMarker;
 
-            Tuple<int, int> snappedCoords = snapToGrid(e.GetPosition(mainCanvas).X, e.GetPosition(mainCanvas).Y, size);
+            Tuple<int, int> snappedCoords = snapToGrid(e.GetPosition(mainCanvas).X, e.GetPosition(mainCanvas).Y, this.sizeOfCell);
             Canvas.SetTop(rect, snappedCoords.Item2);
             Canvas.SetLeft(rect, snappedCoords.Item1);
             mainCanvas.Children.Add(rect);
+
+            Cell curCell = mainGrid.cells.Find(c => c.x == getCellCoordsfromCanvas((int)e.GetPosition(mainCanvas).X, (int)e.GetPosition(mainCanvas).Y).Item1 && c.y == getCellCoordsfromCanvas((int)e.GetPosition(mainCanvas).X, (int)e.GetPosition(mainCanvas).Y).Item2);
+            curCell.currentState = ALIVE;
         }
 
         private void mainCanvas_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
-            int size = Convert.ToInt32(StartPoint.X);
-
             Rectangle rect = new Rectangle();
 
-            rect.Width = size - 1;
-            rect.Height = size - 1;
+            rect.Width = this.sizeOfCell - 1;
+            rect.Height = this.sizeOfCell - 1;
 
             SolidColorBrush cellMarker = new SolidColorBrush(Color.FromRgb(255, 255, 255));
             rect.Fill = cellMarker;
 
-            Tuple<int, int> snappedCoords = snapToGrid(e.GetPosition(mainCanvas).X, e.GetPosition(mainCanvas).Y, size);
+            Tuple<int, int> snappedCoords = snapToGrid(e.GetPosition(mainCanvas).X, e.GetPosition(mainCanvas).Y, this.sizeOfCell);
             Canvas.SetTop(rect, snappedCoords.Item2);
             Canvas.SetLeft(rect, snappedCoords.Item1);
             mainCanvas.Children.Add(rect);
+
+            Cell curCell = mainGrid.cells.Find(c => c.x == getCellCoordsfromCanvas((int)e.GetPosition(mainCanvas).X, (int)e.GetPosition(mainCanvas).Y).Item1 && c.y == getCellCoordsfromCanvas((int)e.GetPosition(mainCanvas).X, (int)e.GetPosition(mainCanvas).Y).Item2);
+            curCell.currentState = DEAD;
         }
     }
 }

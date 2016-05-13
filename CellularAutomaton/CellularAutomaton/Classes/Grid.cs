@@ -4,7 +4,7 @@ namespace CellularAutomaton
 {
     public class Grid
     {
-        public List<List<Cell>> cells
+        public List<Cell> cells
         {
             get;
             set;
