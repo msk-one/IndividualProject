@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CellularAutomaton.MainWindow"
         mc:Ignorable="d"
-        Title="Cellular Automaton" Height="768" Width="1024" MinWidth="1024" MinHeight="768" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Cellular Automaton" Height="1000" Width="1400" MinWidth="1024" MinHeight="768" WindowStartupLocation="CenterScreen" WindowState="Maximized">
 
     <Window.Resources>
         <DrawingBrush x:Name="mainCanvasDB" x:Key="GridTile" Stretch="None" TileMode="Tile" ViewportUnits="Absolute" Viewport="0,0,10,10">
@@ -31,14 +31,14 @@
             <DrawingBrush.Drawing>
                 <GeometryDrawing Brush="{StaticResource GridTile}" >
                     <GeometryDrawing.Geometry>
-                        <RectangleGeometry x:Name="BoardSize" Rect="0,0,771,691" />
+                        <RectangleGeometry x:Name="BoardSize" Rect="0,0,1920,1080" />
                     </GeometryDrawing.Geometry>
                 </GeometryDrawing>
             </DrawingBrush.Drawing>
         </DrawingBrush>
     </Window.Resources>
     <Grid x:Name="grid">
-        <Canvas x:Name="mainCanvas" HorizontalAlignment="Left" Margin="0,26,0,20" Width="774" Background="{StaticResource OffsetGrid}" MouseLeftButtonUp="mainCanvas_MouseLeftButtonUp" MouseRightButtonUp="mainCanvas_MouseRightButtonUp" RenderTransformOrigin="0.5,0.5" ClipToBounds="True" Height="693" ScrollViewer.HorizontalScrollBarVisibility="Visible">
+        <Canvas x:Name="mainCanvas" Background="{StaticResource OffsetGrid}" MouseLeftButtonUp="mainCanvas_MouseLeftButtonUp" MouseRightButtonUp="mainCanvas_MouseRightButtonUp" RenderTransformOrigin="0.5,0.5" ClipToBounds="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
             <Canvas.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform ScaleX="{Binding scaleOfGrid, ElementName=window, FallbackValue=1, Mode=TwoWay, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True, TargetNullValue=1, UpdateSourceTrigger=PropertyChanged}" ScaleY="{Binding scaleOfGrid, ElementName=window, FallbackValue=1, Mode=TwoWay, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True, TargetNullValue=1, UpdateSourceTrigger=PropertyChanged}"/>
@@ -64,8 +64,6 @@
         <StatusBar Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" Height="20" VerticalAlignment="Bottom">
             <StatusBarItem Content="Ready" Height="20" VerticalAlignment="Top" HorizontalContentAlignment="Right"/>
         </StatusBar>
-
-        <GridSplitter x:Name="gridSplitter" Margin="779,26,235,20" HorizontalAlignment="Stretch"/>
         <StackPanel Margin="0,26,0,20" HorizontalAlignment="Right" Width="235" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}">
             <GroupBox x:Name="groupBox" Header="Simulation Control" Height="190">
                 <StackPanel Margin="10">

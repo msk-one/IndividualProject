@@ -222,7 +222,7 @@ namespace CellularAutomaton.MainWindow
             mainCanvas.Children.Add(rect);
 
             Cell curCell = mainGrid.cells.Find(c => c.x == getCellCoordsfromCanvas((int)e.GetPosition(mainCanvas).X, (int)e.GetPosition(mainCanvas).Y).Item1 && c.y == getCellCoordsfromCanvas((int)e.GetPosition(mainCanvas).X, (int)e.GetPosition(mainCanvas).Y).Item2);
-            curCell.currentState = DEAD;
+            curCell.currentState = EMPTY;
         }
     }
 }
