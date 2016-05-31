@@ -1,19 +1,10 @@
 ﻿namespace CellularAutomaton
 {
-    public class State
-    {
-        public string name
+        public enum State
         {
-            get;
-            set;
+            Empty,
+            Alive,
+            Dead
         }
-
-        public int type
-        {
-            get;
-            set;
-        }
-
-    }
 }
 

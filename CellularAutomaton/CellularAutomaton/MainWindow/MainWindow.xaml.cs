@@ -24,9 +24,7 @@ namespace CellularAutomaton.MainWindow
 
         public Grid mainGrid;
         public Simulation mainSim;
-        State EMPTY;
-        State ALIVE;
-        State DEAD;
+
 
         public int sizeOfCell { get; set; }
         public int scaleOfGrid { get; set; }
@@ -44,20 +42,8 @@ namespace CellularAutomaton.MainWindow
             mainGrid = new Grid();
             mainSim = new Simulation();
 
-            EMPTY = new State();
-            EMPTY.name = "EMPTY";
-            EMPTY.type = 0;
-
-            ALIVE = new State();
-            ALIVE.name = "ALIVE";
-            ALIVE.type = 1;
-
-            DEAD = new State();
-            DEAD.name = "DEAD";
-            DEAD.type = 2;
-
             this.sizeOfCell = 10;
-            this.gridMaxSize = 1024;
+            this.gridMaxSize = 1920;
             this.scaleOfGrid = 1;
             StartPoint = new Point(0, 10);
             StartPoint2 = new Point(10, 0);
@@ -71,7 +57,7 @@ namespace CellularAutomaton.MainWindow
                     {
                         x = i,
                         y = j,
-                        currentState = EMPTY,
+                        currentState = State.Empty,
                         Grid = mainGrid
                     };
 
@@ -125,12 +111,16 @@ namespace CellularAutomaton.MainWindow
 
         private void MenuItem_Click_4(object sender, RoutedEventArgs e)
         {
+            mainSim.stop();
             mainCanvas.Children.Clear();
+            mainGrid.clear();
         }
 
         private void button6_Click(object sender, RoutedEventArgs e)
         {
+            mainSim.stop();
             mainCanvas.Children.Clear();
+            mainGrid.clear();
         }
 
         private void MenuItem_Click_5(object sender, RoutedEventArgs e)
@@ -203,7 +193,7 @@ namespace CellularAutomaton.MainWindow
             mainCanvas.Children.Add(rect);
 
             Cell curCell = mainGrid.cells.Find(c => c.x == getCellCoordsfromCanvas((int)e.GetPosition(mainCanvas).X, (int)e.GetPosition(mainCanvas).Y).Item1 && c.y == getCellCoordsfromCanvas((int)e.GetPosition(mainCanvas).X, (int)e.GetPosition(mainCanvas).Y).Item2);
-            curCell.currentState = ALIVE;
+            curCell.currentState = State.Alive;
         }
 
         private void mainCanvas_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
@@ -222,7 +212,28 @@ namespace CellularAutomaton.MainWindow
             mainCanvas.Children.Add(rect);
 
             Cell curCell = mainGrid.cells.Find(c => c.x == getCellCoordsfromCanvas((int)e.GetPosition(mainCanvas).X, (int)e.GetPosition(mainCanvas).Y).Item1 && c.y == getCellCoordsfromCanvas((int)e.GetPosition(mainCanvas).X, (int)e.GetPosition(mainCanvas).Y).Item2);
-            curCell.currentState = EMPTY;
+            curCell.currentState = State.Empty;
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            mainSim.play();
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            mainSim.pause();
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            mainSim.stop();
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            mainSim.pause();
+            mainSim.play();
         }
     }
 }

@@ -67,10 +67,10 @@
         <StackPanel Margin="0,26,0,20" HorizontalAlignment="Right" Width="235" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}">
             <GroupBox x:Name="groupBox" Header="Simulation Control" Height="190">
                 <StackPanel Margin="10">
-                    <Button x:Name="button" Content="Play"/>
-                    <Button x:Name="button1" Content="Pause"/>
-                    <Button x:Name="button2" Content="Stop"/>
-                    <Button x:Name="button3" Content="Step forward"/>
+                    <Button x:Name="button" Content="Play" Click="button_Click"/>
+                    <Button x:Name="button1" Content="Pause" Click="button1_Click"/>
+                    <Button x:Name="button2" Content="Stop" Click="button2_Click"/>
+                    <Button x:Name="button3" Content="Step forward" Click="button3_Click"/>
                     <TextBox x:Name="textBox" Height="23" TextWrapping="Wrap" Text="Generations count" HorizontalContentAlignment="Center" Margin="0,10,0,0" IsEnabled="False"/>
                     <TextBox x:Name="textBox1" Height="23" TextWrapping="Wrap" Text="Step count" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
                 </StackPanel>
@@ -82,9 +82,6 @@
                     <Button x:Name="button6" Content="Clear" Margin="0,10,0,0" Click="button6_Click"/>
                 </StackPanel>
             </GroupBox>
-            <Label x:Name="label" Content="{Binding scaleOfGrid, ElementName=window, IsAsync=True, Mode=TwoWay, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
-
         </StackPanel>
-
     </Grid>
 </Window>

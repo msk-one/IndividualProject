@@ -19,7 +19,7 @@
                         </GeometryGroup>
                     </GeometryDrawing.Geometry>
                     <GeometryDrawing.Pen>
-                        <Pen Thickness="2" Brush="Black" />
+                        <Pen Thickness="1" Brush="Black" />
                     </GeometryDrawing.Pen>
                 </GeometryDrawing>
             </DrawingBrush.Drawing>
@@ -32,7 +32,7 @@
             <DrawingBrush.Drawing>
                 <GeometryDrawing Brush="{StaticResource GridTile}" >
                     <GeometryDrawing.Geometry>
-                        <RectangleGeometry Rect="0,0 200,200" />
+                        <RectangleGeometry Rect="0,0 151,151" />
                     </GeometryDrawing.Geometry>
                 </GeometryDrawing>
             </DrawingBrush.Drawing>
@@ -48,19 +48,14 @@
                 <ListBoxItem Content="Preset 1" Selected="ListBoxItem_Selected"/>
                 <ListBoxItem Content="Preset 2" Selected="ListBoxItem_Selected"/>
                 <ListBoxItem Content="Preset 3" Selected="ListBoxItem_Selected"/>
-                <ListBoxItem Content="Custom 1" Selected="ListBoxItem_Selected"/>
-                <ListBoxItem Content="Custom 2" Selected="ListBoxItem_Selected"/>
             </ListBox>
         </GroupBox>
         <GroupBox x:Name="groupBox1" Header="Custom Rule Editor" Margin="10,0,10,40" Height="383" VerticalAlignment="Bottom">
             <Grid Margin="10">
-                <Canvas HorizontalAlignment="Left" Background="{StaticResource OffsetGrid}" Height="152" Margin="10,36,0,0" VerticalAlignment="Top" Width="152"/>
+                <Canvas x:Name="ruleCanvas" HorizontalAlignment="Left" Background="{StaticResource OffsetGrid}" Height="151" Margin="10,36,0,0" VerticalAlignment="Top" Width="151" MouseRightButtonUp="Canvas_MouseRightButtonUp" MouseLeftButtonUp="Canvas_MouseLeftButtonUp"/>
                 <Label x:Name="label" Content="Neighborhood (5x5):" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
                 <Button x:Name="button3" Content="Add new custom RuleSet" Margin="10,292,177,10"/>
-                <ListBox x:Name="listBox1" Height="152" Margin="167,36,10,0" VerticalAlignment="Top" IsSynchronizedWithCurrentItem="False">
-                    <ListBoxItem Content="My Rule 1"/>
-                    <ListBoxItem Content="My Rule 2"/>
-                </ListBox>
+                <ListBox x:Name="listBox1" Height="152" Margin="167,36,10,0" VerticalAlignment="Top" IsSynchronizedWithCurrentItem="False"/>
                 <Label x:Name="label1" Content="Rules:" HorizontalAlignment="Left" Margin="167,5,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="textBox" Margin="10,216,10,100" TextWrapping="Wrap" Text="Current Rule" IsEnabled="False"/>
                 <Label x:Name="label2" Content="Current rule:" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top"/>
@@ -69,6 +64,7 @@
                 <ComboBox x:Name="comboBox2" HorizontalAlignment="Left" Margin="144,246,0,0" VerticalAlignment="Top" Width="85" Height="24"/>
                 <ComboBox x:Name="comboBox3" Margin="229,246,10,71"/>
                 <Button x:Name="button4" Content="Add new rule" HorizontalAlignment="Left" Margin="239,292,0,0" VerticalAlignment="Top" Width="90" Height="39"/>
+                <Button x:Name="button5" Content="Clear" HorizontalAlignment="Left" Margin="128,191,0,0" VerticalAlignment="Top" Width="34" Height="18" Click="button5_Click"/>
             </Grid>
         </GroupBox>
     </Grid>

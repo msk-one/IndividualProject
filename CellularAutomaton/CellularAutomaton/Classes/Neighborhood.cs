@@ -4,13 +4,13 @@ namespace CellularAutomaton
 {
     public class Neighborhood
     {
-        private int size
+        public int size
         {
             get;
             set;
         }
 
-        public List<List<Cell>> cells
+        public List<Cell> cells
         {
             get;
             set;
