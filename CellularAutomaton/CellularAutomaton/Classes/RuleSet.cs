@@ -4,7 +4,7 @@ namespace CellularAutomaton
 {
     public class RuleSet
     {
-        private List<Rule> rules
+        public List<Rule> rules
         {
             get;
             set;

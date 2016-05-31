@@ -26,9 +26,9 @@ namespace CellularAutomaton.RuleSettingsEditor
             currNeigh = new Neighborhood();
             currNeigh.size = 5;
             currNeigh.cells = new List<Cell>(5*5);
-            for (int i = 0; i <= 5; i++)
+            for (int i = 1; i <= 5; i++)
             {
-                for (int j = 0; j <= 5; j++)
+                for (int j = 1; j <= 5; j++)
                 {
                     Cell tmpCell = new Cell()
                     {
@@ -42,7 +42,7 @@ namespace CellularAutomaton.RuleSettingsEditor
                 }
             }
 
-            Cell mainCell = currNeigh.cells.Find(c => c.x == 2 && c.y == 2);
+            Cell mainCell = currNeigh.cells.Find(c => c.x == 3 && c.y == 3);
             mainCell.currentState = State.Alive;
 
             Rectangle rect = new Rectangle();
@@ -53,7 +53,7 @@ namespace CellularAutomaton.RuleSettingsEditor
             SolidColorBrush cellMarker = new SolidColorBrush(Color.FromRgb(0, 255, 0));
             rect.Fill = cellMarker;
 
-            Tuple<int, int> snappedCoords = snapToGrid(getCanvasCoordsFromCell(mainCell).Item1, getCanvasCoordsFromCell(mainCell).Item2, 30);
+            Tuple<int, int> snappedCoords = snapToGrid(getCanvasCoordsFromCell(mainCell).Item1-1, getCanvasCoordsFromCell(mainCell).Item2-1, 30);
             Canvas.SetTop(rect, snappedCoords.Item2);
             Canvas.SetLeft(rect, snappedCoords.Item1);
             ruleCanvas.Children.Add(rect);
@@ -96,24 +96,86 @@ namespace CellularAutomaton.RuleSettingsEditor
 
         private void Canvas_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
-            Rectangle rect = new Rectangle();
+            Cell curCell =
+                    currNeigh.cells.Find(
+                        c =>
+                            c.x ==
+                            getCellCoordsfromCanvas((int)e.GetPosition(ruleCanvas).X, (int)e.GetPosition(ruleCanvas).Y)
+                                .Item1 &&
+                            c.y ==
+                            getCellCoordsfromCanvas((int)e.GetPosition(ruleCanvas).X, (int)e.GetPosition(ruleCanvas).Y)
+                                .Item2);
+            
+            if (curCell.x == 3 && curCell.y == 3) {}
+            else
+            {
+                curCell.currentState = State.Empty;
+                Rectangle rect = new Rectangle();
 
-            rect.Width = 30 - 1;
-            rect.Height = 30 - 1;
+                rect.Width = 30 - 1;
+                rect.Height = 30 - 1;
 
-            SolidColorBrush cellMarker = new SolidColorBrush(Color.FromRgb(255, 255, 255));
-            rect.Fill = cellMarker;
+                SolidColorBrush cellMarker = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                rect.Fill = cellMarker;
 
-            Tuple<int, int> snappedCoords = snapToGrid(e.GetPosition(ruleCanvas).X, e.GetPosition(ruleCanvas).Y, 30);
-            Canvas.SetTop(rect, snappedCoords.Item2);
-            Canvas.SetLeft(rect, snappedCoords.Item1);
-            ruleCanvas.Children.Add(rect);
-            Cell curCell = currNeigh.cells.Find(c => c.x == getCellCoordsfromCanvas((int)e.GetPosition(ruleCanvas).X, (int)e.GetPosition(ruleCanvas).Y).Item1 && c.y == getCellCoordsfromCanvas((int)e.GetPosition(ruleCanvas).X, (int)e.GetPosition(ruleCanvas).Y).Item2);
-            curCell.currentState = State.Empty;
+                Tuple<int, int> snappedCoords = snapToGrid(e.GetPosition(ruleCanvas).X, e.GetPosition(ruleCanvas).Y, 30);
+                Canvas.SetTop(rect, snappedCoords.Item2);
+                Canvas.SetLeft(rect, snappedCoords.Item1);
+                ruleCanvas.Children.Add(rect);
+                
+            }
         }
 
         private void Canvas_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Cell curCell = currNeigh.cells.Find(c => c.x == getCellCoordsfromCanvas((int)e.GetPosition(ruleCanvas).X, (int)e.GetPosition(ruleCanvas).Y).Item1 && c.y == getCellCoordsfromCanvas((int)e.GetPosition(ruleCanvas).X, (int)e.GetPosition(ruleCanvas).Y).Item2);
+
+                if (curCell.currentState == State.Empty || curCell.currentState == State.Dead)
+                {
+                    curCell.currentState = State.Alive;
+
+                    Rectangle rect = new Rectangle();
+
+                    rect.Width = 30 - 1;
+                    rect.Height = 30 - 1;
+
+                    SolidColorBrush cellMarker = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+                    rect.Fill = cellMarker;
+
+                    Tuple<int, int> snappedCoords = snapToGrid(e.GetPosition(ruleCanvas).X, e.GetPosition(ruleCanvas).Y,
+                        30);
+                    Canvas.SetTop(rect, snappedCoords.Item2);
+                    Canvas.SetLeft(rect, snappedCoords.Item1);
+                    ruleCanvas.Children.Add(rect);
+                }
+                else if (curCell.currentState == State.Alive)
+                {
+                    curCell.currentState = State.Dead;
+
+                    Rectangle rect = new Rectangle();
+
+                    rect.Width = 30 - 1;
+                    rect.Height = 30 - 1;
+
+                    SolidColorBrush cellMarker = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                    rect.Fill = cellMarker;
+
+                    Tuple<int, int> snappedCoords = snapToGrid(e.GetPosition(ruleCanvas).X, e.GetPosition(ruleCanvas).Y,
+                        30);
+                    Canvas.SetTop(rect, snappedCoords.Item2);
+                    Canvas.SetLeft(rect, snappedCoords.Item1);
+                    ruleCanvas.Children.Add(rect);
+                }
+            
+        }
+
+        private void button5_Click(object sender, RoutedEventArgs e)
+        {
+            ruleCanvas.Children.Clear();
+
+            Cell mainCell = currNeigh.cells.Find(c => c.x == 3 && c.y == 3);
+            mainCell.currentState = State.Alive;
+
             Rectangle rect = new Rectangle();
 
             rect.Width = 30 - 1;
@@ -122,17 +184,26 @@ namespace CellularAutomaton.RuleSettingsEditor
             SolidColorBrush cellMarker = new SolidColorBrush(Color.FromRgb(0, 255, 0));
             rect.Fill = cellMarker;
 
-            Tuple<int, int> snappedCoords = snapToGrid(e.GetPosition(ruleCanvas).X, e.GetPosition(ruleCanvas).Y, 30);
+            Tuple<int, int> snappedCoords = snapToGrid(getCanvasCoordsFromCell(mainCell).Item1 - 1, getCanvasCoordsFromCell(mainCell).Item2 - 1, 30);
             Canvas.SetTop(rect, snappedCoords.Item2);
             Canvas.SetLeft(rect, snappedCoords.Item1);
             ruleCanvas.Children.Add(rect);
-            Cell curCell = currNeigh.cells.Find(c => c.x == getCellCoordsfromCanvas((int)e.GetPosition(ruleCanvas).X, (int)e.GetPosition(ruleCanvas).Y).Item1 && c.y == getCellCoordsfromCanvas((int)e.GetPosition(ruleCanvas).X, (int)e.GetPosition(ruleCanvas).Y).Item2);
-            curCell.currentState = State.Alive;
         }
 
-        private void button5_Click(object sender, RoutedEventArgs e)
+        private void button4_Click(object sender, RoutedEventArgs e)
         {
-            ruleCanvas.Children.Clear();
+            if (currentRuleText.Text == "Current Rule")
+            {
+                currRule = new Rule();
+                currRule.Cell = currNeigh.cells.Find(c => c.x == 3 && c.y == 3);
+                //currRule.Neighborhood = currNeigh;
+                currSet.checkRuleSetValidity();
+                //currSet.rules.Add();
+            }
+            else
+            {
+                
+            }
         }
     }
 }

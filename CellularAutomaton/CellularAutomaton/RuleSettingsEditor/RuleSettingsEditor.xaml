@@ -57,13 +57,13 @@
                 <Button x:Name="button3" Content="Add new custom RuleSet" Margin="10,292,177,10"/>
                 <ListBox x:Name="listBox1" Height="152" Margin="167,36,10,0" VerticalAlignment="Top" IsSynchronizedWithCurrentItem="False"/>
                 <Label x:Name="label1" Content="Rules:" HorizontalAlignment="Left" Margin="167,5,0,0" VerticalAlignment="Top"/>
-                <TextBox x:Name="textBox" Margin="10,216,10,100" TextWrapping="Wrap" Text="Current Rule" IsEnabled="False"/>
+                <TextBox x:Name="currentRuleText" Margin="10,216,10,100" TextWrapping="Wrap" Text="Current Rule" IsEnabled="False"/>
                 <Label x:Name="label2" Content="Current rule:" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top"/>
                 <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="10,246,0,0" VerticalAlignment="Top" Width="86" Height="24"/>
                 <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="96,246,0,0" VerticalAlignment="Top" Width="48" Height="24"/>
                 <ComboBox x:Name="comboBox2" HorizontalAlignment="Left" Margin="144,246,0,0" VerticalAlignment="Top" Width="85" Height="24"/>
                 <ComboBox x:Name="comboBox3" Margin="229,246,10,71"/>
-                <Button x:Name="button4" Content="Add new rule" HorizontalAlignment="Left" Margin="239,292,0,0" VerticalAlignment="Top" Width="90" Height="39"/>
+                <Button x:Name="button4" Content="Add new rule" HorizontalAlignment="Left" Margin="239,292,0,0" VerticalAlignment="Top" Width="90" Height="39" Click="button4_Click"/>
                 <Button x:Name="button5" Content="Clear" HorizontalAlignment="Left" Margin="128,191,0,0" VerticalAlignment="Top" Width="34" Height="18" Click="button5_Click"/>
             </Grid>
         </GroupBox>
