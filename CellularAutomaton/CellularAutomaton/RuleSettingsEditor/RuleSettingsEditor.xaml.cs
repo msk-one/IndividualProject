@@ -105,24 +105,30 @@ namespace CellularAutomaton.RuleSettingsEditor
                             c.y ==
                             getCellCoordsfromCanvas((int)e.GetPosition(ruleCanvas).X, (int)e.GetPosition(ruleCanvas).Y)
                                 .Item2);
-            
-            if (curCell.x == 3 && curCell.y == 3) {}
-            else
+
+            if (curCell != null)
             {
-                curCell.currentState = State.Empty;
-                Rectangle rect = new Rectangle();
+                if (curCell.x == 3 && curCell.y == 3)
+                {
+                }
+                else
+                {
+                    curCell.currentState = State.Empty;
+                    Rectangle rect = new Rectangle();
 
-                rect.Width = 30 - 1;
-                rect.Height = 30 - 1;
+                    rect.Width = 30 - 1;
+                    rect.Height = 30 - 1;
 
-                SolidColorBrush cellMarker = new SolidColorBrush(Color.FromRgb(255, 255, 255));
-                rect.Fill = cellMarker;
+                    SolidColorBrush cellMarker = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                    rect.Fill = cellMarker;
 
-                Tuple<int, int> snappedCoords = snapToGrid(e.GetPosition(ruleCanvas).X, e.GetPosition(ruleCanvas).Y, 30);
-                Canvas.SetTop(rect, snappedCoords.Item2);
-                Canvas.SetLeft(rect, snappedCoords.Item1);
-                ruleCanvas.Children.Add(rect);
-                
+                    Tuple<int, int> snappedCoords = snapToGrid(e.GetPosition(ruleCanvas).X, e.GetPosition(ruleCanvas).Y,
+                        30);
+                    Canvas.SetTop(rect, snappedCoords.Item2);
+                    Canvas.SetLeft(rect, snappedCoords.Item1);
+                    ruleCanvas.Children.Add(rect);
+
+                }
             }
         }
 
@@ -130,6 +136,8 @@ namespace CellularAutomaton.RuleSettingsEditor
         {
             Cell curCell = currNeigh.cells.Find(c => c.x == getCellCoordsfromCanvas((int)e.GetPosition(ruleCanvas).X, (int)e.GetPosition(ruleCanvas).Y).Item1 && c.y == getCellCoordsfromCanvas((int)e.GetPosition(ruleCanvas).X, (int)e.GetPosition(ruleCanvas).Y).Item2);
 
+            if (curCell != null)
+            {
                 if (curCell.currentState == State.Empty || curCell.currentState == State.Dead)
                 {
                     curCell.currentState = State.Alive;
@@ -166,7 +174,7 @@ namespace CellularAutomaton.RuleSettingsEditor
                     Canvas.SetLeft(rect, snappedCoords.Item1);
                     ruleCanvas.Children.Add(rect);
                 }
-            
+            }
         }
 
         private void button5_Click(object sender, RoutedEventArgs e)
@@ -188,6 +196,8 @@ namespace CellularAutomaton.RuleSettingsEditor
             Canvas.SetTop(rect, snappedCoords.Item2);
             Canvas.SetLeft(rect, snappedCoords.Item1);
             ruleCanvas.Children.Add(rect);
+
+            currentRuleText.Text = "Current Rule";
         }
 
         private void button4_Click(object sender, RoutedEventArgs e)
@@ -204,6 +214,22 @@ namespace CellularAutomaton.RuleSettingsEditor
             {
                 
             }
+        }
+
+        private void button6_Click(object sender, RoutedEventArgs e)
+        {
+            currentRuleText.Text = "If " + comboCellCount.Text + " cells in neigh. are " + comboCellState.Text +
+                                   " then cell will be " + comboFinalState.Text;
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

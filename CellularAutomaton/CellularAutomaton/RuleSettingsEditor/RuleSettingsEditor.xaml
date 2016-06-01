@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CellularAutomaton.RuleSettingsEditor"
         mc:Ignorable="d"
-        Title="Settings and rule management" Height="659" Width="397" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="Settings and rule management" Height="659" Width="397" ShowInTaskbar="False" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" WindowStyle="ToolWindow" Topmost="True">
 
     <Window.Resources>
         <DrawingBrush x:Key="GridTile" Stretch="None" TileMode="Tile"
@@ -40,9 +40,8 @@
     </Window.Resources>
 
     <Grid Margin="0,0,0,1">
-        <Button x:Name="button" Content="OK" HorizontalAlignment="Right" Margin="0,589,10,10" Width="75"/>
-        <Button x:Name="button1" Content="Apply" HorizontalAlignment="Right" Margin="0,589,90,10" Width="75"/>
-        <Button x:Name="button2" Content="Cancel" HorizontalAlignment="Left" Margin="10,589,0,10" Width="75"/>
+        <Button x:Name="button" Content="OK" HorizontalAlignment="Right" Margin="0,589,10,10" Width="75" Click="button_Click"/>
+        <Button x:Name="button2" Content="Cancel" HorizontalAlignment="Left" Margin="10,589,0,10" Width="75" Click="button2_Click"/>
         <GroupBox x:Name="groupBox" Header="Rule Sets" Margin="10,10,10,0" VerticalAlignment="Top" Height="186">
             <ListBox x:Name="listBox" Margin="10,10,10,0" Height="140" VerticalAlignment="Top">
                 <ListBoxItem Content="Preset 1" Selected="ListBoxItem_Selected"/>
@@ -59,12 +58,46 @@
                 <Label x:Name="label1" Content="Rules:" HorizontalAlignment="Left" Margin="167,5,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="currentRuleText" Margin="10,216,10,100" TextWrapping="Wrap" Text="Current Rule" IsEnabled="False"/>
                 <Label x:Name="label2" Content="Current rule:" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top"/>
-                <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="10,246,0,0" VerticalAlignment="Top" Width="86" Height="24"/>
-                <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="96,246,0,0" VerticalAlignment="Top" Width="48" Height="24"/>
-                <ComboBox x:Name="comboBox2" HorizontalAlignment="Left" Margin="144,246,0,0" VerticalAlignment="Top" Width="85" Height="24"/>
-                <ComboBox x:Name="comboBox3" Margin="229,246,10,71"/>
-                <Button x:Name="button4" Content="Add new rule" HorizontalAlignment="Left" Margin="239,292,0,0" VerticalAlignment="Top" Width="90" Height="39" Click="button4_Click"/>
+                <ComboBox x:Name="comboCellCount" HorizontalAlignment="Left" Margin="27,248,0,0" VerticalAlignment="Top" Width="37" Height="24" SelectedIndex="0">
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                    <ComboBoxItem Content="5"/>
+                    <ComboBoxItem Content="6"/>
+                    <ComboBoxItem Content="7"/>
+                    <ComboBoxItem Content="8"/>
+                    <ComboBoxItem Content="9"/>
+                    <ComboBoxItem Content="10"/>
+                    <ComboBoxItem Content="11"/>
+                    <ComboBoxItem Content="12"/>
+                    <ComboBoxItem Content="13"/>
+                    <ComboBoxItem Content="14"/>
+                    <ComboBoxItem Content="15"/>
+                    <ComboBoxItem Content="16"/>
+                    <ComboBoxItem Content="17"/>
+                    <ComboBoxItem Content="18"/>
+                    <ComboBoxItem Content="19"/>
+                    <ComboBoxItem Content="20"/>
+                    <ComboBoxItem Content="21"/>
+                    <ComboBoxItem Content="22"/>
+                    <ComboBoxItem Content="23"/>
+                    <ComboBoxItem Content="24"/>
+                </ComboBox>
+                <ComboBox x:Name="comboCellState" HorizontalAlignment="Left" Margin="69,248,0,0" VerticalAlignment="Top" Width="92" Height="24" SelectedIndex="0">
+                    <ComboBoxItem Content="Alive"/>
+                    <ComboBoxItem Content="Dead"/>
+                    <ComboBoxItem Content="Empty"/>
+                </ComboBox>
+                <ComboBox x:Name="comboFinalState" Margin="195,248,54,69" SelectedIndex="0">
+                    <ComboBoxItem Content="Alive"/>
+                    <ComboBoxItem Content="Dead"/>
+                </ComboBox>
+                <Button x:Name="button4" Content="Add new rule" HorizontalAlignment="Left" Margin="229,292,0,0" VerticalAlignment="Top" Width="90" Height="39" Click="button4_Click"/>
                 <Button x:Name="button5" Content="Clear" HorizontalAlignment="Left" Margin="128,191,0,0" VerticalAlignment="Top" Width="34" Height="18" Click="button5_Click"/>
+                <Label x:Name="label3" Content="If" HorizontalAlignment="Left" Margin="10,246,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.263,-0.385"/>
+                <Label x:Name="label4" Content="then" HorizontalAlignment="Left" Margin="161,246,0,0" VerticalAlignment="Top"/>
+                <Button x:Name="button6" Content="Add" HorizontalAlignment="Left" Margin="285,248,0,0" VerticalAlignment="Top" Width="34" Height="24" Click="button6_Click"/>
             </Grid>
         </GroupBox>
     </Grid>

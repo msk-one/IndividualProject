@@ -31,23 +31,26 @@
             <DrawingBrush.Drawing>
                 <GeometryDrawing Brush="{StaticResource GridTile}" >
                     <GeometryDrawing.Geometry>
-                        <RectangleGeometry x:Name="BoardSize" Rect="0,0,1920,1080" />
+                        <RectangleGeometry x:Name="BoardSize" Rect="0,0,10800,19200" />
                     </GeometryDrawing.Geometry>
                 </GeometryDrawing>
             </DrawingBrush.Drawing>
         </DrawingBrush>
     </Window.Resources>
     <Grid x:Name="grid">
-        <Canvas x:Name="mainCanvas" Background="{StaticResource OffsetGrid}" MouseLeftButtonUp="mainCanvas_MouseLeftButtonUp" MouseRightButtonUp="mainCanvas_MouseRightButtonUp" RenderTransformOrigin="0.5,0.5" ClipToBounds="True" ScrollViewer.HorizontalScrollBarVisibility="Visible">
-            <Canvas.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform ScaleX="{Binding scaleOfGrid, ElementName=window, FallbackValue=1, Mode=TwoWay, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True, TargetNullValue=1, UpdateSourceTrigger=PropertyChanged}" ScaleY="{Binding scaleOfGrid, ElementName=window, FallbackValue=1, Mode=TwoWay, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True, TargetNullValue=1, UpdateSourceTrigger=PropertyChanged}"/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Canvas.RenderTransform>
-        </Canvas>
+        <ScrollViewer x:Name="scrollViewer" Canvas.Top="25" Margin="0,26,235,22" HorizontalScrollBarVisibility="Auto"
+              VerticalScrollBarVisibility="Auto" MouseMove="scrollViewer_MouseMove" MouseLeftButtonDown="scrollViewer_MouseLeftButtonDown" PreviewMouseWheel="scrollViewer_PreviewMouseWheel" MouseLeftButtonUp="scrollViewer_MouseLeftButtonUp" ScrollChanged="scrollViewer_ScrollChanged" MouseDown="scrollViewer_MouseDown" MouseUp="scrollViewer_MouseUp">
+            <Canvas x:Name="mainCanvas" Background="{StaticResource OffsetGrid}" MouseLeftButtonUp="mainCanvas_MouseLeftButtonUp" MouseRightButtonUp="mainCanvas_MouseRightButtonUp" RenderTransformOrigin="0.5,0.5" ClipToBounds="True" ScrollViewer.HorizontalScrollBarVisibility="Visible" Width="19800" Height="10793">
+                <Canvas.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="{Binding scaleOfGrid, ElementName=window, FallbackValue=1, Mode=TwoWay, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True, TargetNullValue=1, UpdateSourceTrigger=PropertyChanged}" ScaleY="{Binding scaleOfGrid, ElementName=window, FallbackValue=1, Mode=TwoWay, NotifyOnTargetUpdated=True, NotifyOnSourceUpdated=True, TargetNullValue=1, UpdateSourceTrigger=PropertyChanged}"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Canvas.RenderTransform>
+            </Canvas>
+        </ScrollViewer>
         <Menu x:Name="menu" Height="26" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}">
             <MenuItem Header="File" Height="26">
                 <MenuItem Header="New" HorizontalAlignment="Left" Width="140" Click="MenuItem_Click_4"/>

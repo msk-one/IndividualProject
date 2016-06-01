@@ -37,6 +37,11 @@ namespace CellularAutomaton.MainWindow
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
+        private bool isMoving = false;                  //False - ignore mouse movements and don't scroll
+        private bool isDeferredMovingStarted = false;   //True - Mouse down -> Mouse up without moving -> Move; False - Mouse down -> Move
+        private Point? startPosition = null;
+        private double slowdown = 200;
+
         public MainWindow()
         {
             mainGrid = new Grid();
@@ -48,10 +53,10 @@ namespace CellularAutomaton.MainWindow
             StartPoint = new Point(0, 10);
             StartPoint2 = new Point(10, 0);
 
-            mainGrid.cells = new List<Cell>(1024*1024);
-            for (int i = 0; i <= 1024; i++)
+            mainGrid.cells = new List<Cell>(1920*1080);
+            for (int i = 0; i <= 1920; i++)
             {
-                for (int j = 0; j <= 1024; j++)
+                for (int j = 0; j <= 1080; j++)
                 {
                     Cell tmpCell = new Cell()
                     {
@@ -234,6 +239,69 @@ namespace CellularAutomaton.MainWindow
         {
             mainSim.pause();
             mainSim.play();
+        }
+
+        private void scrollViewer_MouseMove(object sender, MouseEventArgs e)
+        {
+            var sv = sender as ScrollViewer;
+
+            if (this.isMoving && sv != null)
+            {
+                this.isDeferredMovingStarted = false; //standard scrolling (Mouse down -> Move)
+
+                var currentPosition = e.GetPosition(sv);
+                var offset = currentPosition - startPosition.Value;
+                offset.Y /= slowdown;
+                offset.X /= slowdown;
+
+                //if(Math.Abs(offset.Y) > 25.0/slowdown)  //Some kind of a dead space, uncomment if it is neccessary
+                sv.ScrollToVerticalOffset(sv.VerticalOffset + offset.Y);
+                sv.ScrollToHorizontalOffset(sv.HorizontalOffset + offset.X);
+            }
+        }
+
+        private void scrollViewer_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+        }
+
+        private void scrollViewer_PreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+        }
+
+        private void scrollViewer_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+        }
+
+        private void scrollViewer_ScrollChanged(object sender, ScrollChangedEventArgs e)
+        {  
+        }
+
+        private void scrollViewer_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (this.isMoving == true) //Moving with a released wheel and pressing a button
+                this.CancelScrolling();
+            else if (e.ChangedButton == MouseButton.Middle && e.ButtonState == MouseButtonState.Pressed)
+            {
+                if (this.isMoving == false) //Pressing a wheel the first time
+                {
+                    this.isMoving = true;
+                    this.startPosition = e.GetPosition(sender as IInputElement);
+                    this.isDeferredMovingStarted = true; //the default value is true until the opposite value is set                   
+                }
+            }
+        }
+
+        private void CancelScrolling()
+        {
+            this.isMoving = false;
+            this.startPosition = null;
+            this.isDeferredMovingStarted = false;
+        }
+
+        private void scrollViewer_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Middle && e.ButtonState == MouseButtonState.Released && this.isDeferredMovingStarted != true)
+                this.CancelScrolling();
         }
     }
 }
