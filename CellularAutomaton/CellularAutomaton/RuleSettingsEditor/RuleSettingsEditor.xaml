@@ -43,18 +43,14 @@
         <Button x:Name="button" Content="OK" HorizontalAlignment="Right" Margin="0,589,10,10" Width="75" Click="button_Click"/>
         <Button x:Name="button2" Content="Cancel" HorizontalAlignment="Left" Margin="10,589,0,10" Width="75" Click="button2_Click"/>
         <GroupBox x:Name="groupBox" Header="Rule Sets" Margin="10,10,10,0" VerticalAlignment="Top" Height="186">
-            <ListBox x:Name="listBox" Margin="10,10,10,0" Height="140" VerticalAlignment="Top">
-                <ListBoxItem Content="Preset 1" Selected="ListBoxItem_Selected"/>
-                <ListBoxItem Content="Preset 2" Selected="ListBoxItem_Selected"/>
-                <ListBoxItem Content="Preset 3" Selected="ListBoxItem_Selected"/>
-            </ListBox>
+            <ListBox x:Name="ruleSetsListBox" Margin="10,10,10,0" Height="140" VerticalAlignment="Top"/>
         </GroupBox>
         <GroupBox x:Name="groupBox1" Header="Custom Rule Editor" Margin="10,0,10,40" Height="383" VerticalAlignment="Bottom">
             <Grid Margin="10">
                 <Canvas x:Name="ruleCanvas" HorizontalAlignment="Left" Background="{StaticResource OffsetGrid}" Height="151" Margin="10,36,0,0" VerticalAlignment="Top" Width="151" MouseRightButtonUp="Canvas_MouseRightButtonUp" MouseLeftButtonUp="Canvas_MouseLeftButtonUp"/>
                 <Label x:Name="label" Content="Neighborhood (5x5):" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="button3" Content="Add new custom RuleSet" Margin="10,292,177,10"/>
-                <ListBox x:Name="listBox1" Height="152" Margin="167,36,10,0" VerticalAlignment="Top" IsSynchronizedWithCurrentItem="False"/>
+                <Button x:Name="button3" Content="Add new custom RuleSet" Margin="10,292,177,10" Click="button3_Click"/>
+                <ListBox x:Name="rulesListBox" Height="152" Margin="167,36,10,0" VerticalAlignment="Top" IsSynchronizedWithCurrentItem="False"/>
                 <Label x:Name="label1" Content="Rules:" HorizontalAlignment="Left" Margin="167,5,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="currentRuleText" Margin="10,216,10,100" TextWrapping="Wrap" Text="Current Rule" IsEnabled="False"/>
                 <Label x:Name="label2" Content="Current rule:" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top"/>
@@ -98,6 +94,7 @@
                 <Label x:Name="label3" Content="If" HorizontalAlignment="Left" Margin="10,246,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.263,-0.385"/>
                 <Label x:Name="label4" Content="then" HorizontalAlignment="Left" Margin="161,246,0,0" VerticalAlignment="Top"/>
                 <Button x:Name="button6" Content="Add" HorizontalAlignment="Left" Margin="285,248,0,0" VerticalAlignment="Top" Width="34" Height="24" Click="button6_Click"/>
+                <Button x:Name="button1" Content="Clear rules" HorizontalAlignment="Left" Margin="250,191,0,0" VerticalAlignment="Top" Width="69" Height="18" Click="button1_Click"/>
             </Grid>
         </GroupBox>
     </Grid>

@@ -20,11 +20,29 @@ namespace CellularAutomaton.RuleSettingsEditor
         Rule currRule;
         RuleSet currSet;
 
+        private int currCellCount;
+        private State currInitState;
+        private State currFinalState;
+
+        private List<RuleSet> ruleSetList;
+
         public RuleSettingsEditor()
         {
             InitializeComponent();
             currNeigh = new Neighborhood();
             currNeigh.size = 5;
+
+            ruleSetList = new List<RuleSet>();
+
+            ruleSetList.Add(new RuleSet());
+            ruleSetsListBox.Items.Add("Preset 1");
+            ruleSetList.Add(new RuleSet());
+            ruleSetsListBox.Items.Add("Preset 2");
+            ruleSetList.Add(new RuleSet());
+            ruleSetsListBox.Items.Add("Preset 3");
+            ruleSetList.Add(new RuleSet());
+            ruleSetsListBox.Items.Add("Preset 4");
+
             currNeigh.cells = new List<Cell>(5*5);
             for (int i = 1; i <= 5; i++)
             {
@@ -57,6 +75,9 @@ namespace CellularAutomaton.RuleSettingsEditor
             Canvas.SetTop(rect, snappedCoords.Item2);
             Canvas.SetLeft(rect, snappedCoords.Item1);
             ruleCanvas.Children.Add(rect);
+
+            currSet = new RuleSet();
+            currSet.rules = new List<Rule>();
         }
 
         private void ListBoxItem_Selected(object sender, RoutedEventArgs e)
@@ -108,10 +129,7 @@ namespace CellularAutomaton.RuleSettingsEditor
 
             if (curCell != null)
             {
-                if (curCell.x == 3 && curCell.y == 3)
-                {
-                }
-                else
+                if (curCell.x != 3 && curCell.y != 3)
                 {
                     curCell.currentState = State.Empty;
                     Rectangle rect = new Rectangle();
@@ -127,7 +145,6 @@ namespace CellularAutomaton.RuleSettingsEditor
                     Canvas.SetTop(rect, snappedCoords.Item2);
                     Canvas.SetLeft(rect, snappedCoords.Item1);
                     ruleCanvas.Children.Add(rect);
-
                 }
             }
         }
@@ -198,21 +215,60 @@ namespace CellularAutomaton.RuleSettingsEditor
             ruleCanvas.Children.Add(rect);
 
             currentRuleText.Text = "Current Rule";
+
+            currCellCount = 0;
+            currInitState = State.Empty;
+            currFinalState = State.Empty;
         }
 
         private void button4_Click(object sender, RoutedEventArgs e)
         {
+
             if (currentRuleText.Text == "Current Rule")
             {
                 currRule = new Rule();
                 currRule.Cell = currNeigh.cells.Find(c => c.x == 3 && c.y == 3);
-                //currRule.Neighborhood = currNeigh;
-                currSet.checkRuleSetValidity();
-                //currSet.rules.Add();
+                currRule.initState = currNeigh;
+                currRule.finalState = currRule.Cell.currentState;
+                currSet.rules.Add(currRule);
+                rulesListBox.Items.Add("Rule " + currSet.rules.Count);
+                if (currSet.checkRuleSetValidity())
+                {
+                    
+                }
+                else
+                {
+                    if (MessageBox.Show("Rules in set are improper, do you want to fix them manually (yes) or auto (no)?",
+                        "Rules not vaild", MessageBoxButton.YesNo,
+                        MessageBoxImage.Error, MessageBoxResult.Yes, MessageBoxOptions.None) == MessageBoxResult.Yes)
+                    {
+                        
+                    }
+                    else
+                    {
+                        
+                    }
+                }
             }
             else
             {
-                
+                if (currCellCount != 0)
+                {
+                    currRule = new Rule();
+                    currRule.finalState = currFinalState;
+                    currRule.cellCount = currCellCount;
+                    currRule.initStateAlternative = currInitState;
+                    currSet.rules.Add(currRule);
+                    rulesListBox.Items.Add("Rule (text) " + currSet.rules.Count);
+                    if (currSet.checkRuleSetValidity())
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
+                }
             }
         }
 
@@ -220,6 +276,28 @@ namespace CellularAutomaton.RuleSettingsEditor
         {
             currentRuleText.Text = "If " + comboCellCount.Text + " cells in neigh. are " + comboCellState.Text +
                                    " then cell will be " + comboFinalState.Text;
+            currCellCount = Convert.ToInt32(comboCellCount.Text);
+            if (comboCellState.Text == "Alive")
+            {
+                currInitState = State.Alive;
+            }
+            else if (comboCellState.Text == "Dead")
+            {
+                currInitState = State.Dead;
+            }
+            else if (comboCellState.Text == "Empty")
+            {
+                currInitState = State.Empty;
+            }
+
+            if (comboFinalState.Text == "Alive")
+            {
+                currFinalState = State.Alive;
+            }
+            else if (comboFinalState.Text == "Dead")
+            {
+                currFinalState = State.Dead;
+            }
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
@@ -230,6 +308,20 @@ namespace CellularAutomaton.RuleSettingsEditor
         private void button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            currSet.rules.Clear();
+            rulesListBox.Items.Clear();
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            ruleSetList.Add(currSet);
+            ruleSetsListBox.Items.Add("Custom Rule Set " + ruleSetList.Count);
+            currSet = new RuleSet();
+            currSet.rules = new List<Rule>();
         }
     }
 }

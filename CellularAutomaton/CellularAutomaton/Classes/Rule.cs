@@ -4,25 +4,25 @@ namespace CellularAutomaton
 {
     public class Rule
     {
-        private Neighborhood initState
+        public Neighborhood initState
         {
             get;
             set;
         }
 
-        private State finalState
+        public State finalState
         {
             get;
             set;
         }
 
-        private Neighborhood currNeighborhood
+        public State initStateAlternative
         {
             get;
             set;
         }
 
-        private Cell currCell
+        public int cellCount
         {
             get;
             set;
@@ -35,18 +35,6 @@ namespace CellularAutomaton
         }
 
         public Cell Cell
-        {
-            get;
-            set;
-        }
-
-        public List<Neighborhood> Neighborhood
-        {
-            get;
-            set;
-        }
-
-        public State State
         {
             get;
             set;

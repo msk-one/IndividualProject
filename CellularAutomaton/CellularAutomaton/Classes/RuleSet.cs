@@ -16,19 +16,31 @@ namespace CellularAutomaton
             set;
         }
 
-        public void getRule(int i)
+        public Rule getRule(int i)
         {
-            throw new System.NotImplementedException();
+            if (i >= 0 && i <= rules.Count)
+            {
+                return rules[i];
+            }
+            else
+            {
+                return null;
+            }
         }
 
-        public void applyRules()
+        public Cell applyRules(Neighborhood init)
         {
-            throw new System.NotImplementedException();
+            return new Cell();
         }
 
-        public void checkRuleSetValidity()
+        public bool checkRuleSetValidity()
         {
-            throw new System.NotImplementedException();
+            bool proper = true;
+            foreach (Rule r in rules)
+            {
+                
+            }
+            return true;
         }
 
     }

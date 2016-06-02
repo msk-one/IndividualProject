@@ -5714,6 +5714,54 @@
         isAbstract="false"
         isLeaf="false" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="58b4d1a5-64fe-470f-a99f-ab5f9e996c3f"
+        name="CellularAutomaton"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="2874b811-ccd7-4ce5-b3dc-45e369b55e60"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="1dda75f1-7699-4cae-a3bf-65c123e51a67"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="164b1db4-9c8a-4cd7-9b76-879eb986b9d3"
+                  LastKnownName="User 1 sends invite"
+                  LastKnownLocation="Architecture.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <opaqueAction
+            Id="164b1db4-9c8a-4cd7-9b76-879eb986b9d3"
+            name="User 1 sends invite"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="d9595e14-eda1-4b5a-860a-3ee48416d5f1"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="3750ed55-ebac-4274-9d4b-275c69e532a0"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="Architecture.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="3750ed55-ebac-4274-9d4b-275c69e532a0"
+            name="Decision1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
