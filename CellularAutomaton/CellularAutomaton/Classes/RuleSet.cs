@@ -36,9 +36,19 @@ namespace CellularAutomaton
         public bool checkRuleSetValidity()
         {
             bool proper = true;
+            int wrongRuleMarker = -1;
+
             foreach (Rule r in rules)
             {
-                
+                State lastState = r.finalState;
+                bool same = false;
+                for (int i = 0; i < r.initState.cells.Count; i++)
+                {
+                    Cell currCell = r.initState.cells[i];
+                    if(currCell.x == 3 && currCell.y == 3) { continue; }
+
+                    //if(currCell.)
+                }
             }
             return true;
         }
