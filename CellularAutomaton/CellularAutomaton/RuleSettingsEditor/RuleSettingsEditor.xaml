@@ -40,17 +40,22 @@
     </Window.Resources>
 
     <Grid Margin="0,0,0,1">
-        <Button x:Name="button" Content="OK" HorizontalAlignment="Right" Margin="0,589,10,10" Width="75" Click="button_Click"/>
-        <Button x:Name="button2" Content="Cancel" HorizontalAlignment="Left" Margin="10,589,0,10" Width="75" Click="button2_Click"/>
+        <Button x:Name="okButton" Content="OK" HorizontalAlignment="Right" Margin="0,589,10,10" Width="75" Click="button_Click"/>
+        <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="10,589,0,10" Width="75" Click="button2_Click"/>
         <GroupBox x:Name="groupBox" Header="Rule Sets" Margin="10,10,10,0" VerticalAlignment="Top" Height="186">
-            <ListBox x:Name="ruleSetsListBox" Margin="10,10,10,0" Height="140" VerticalAlignment="Top"/>
+            <Grid>
+                <ListBox x:Name="ruleSetsListBox" Margin="10,10,10,0" Height="110" VerticalAlignment="Top"/>
+                <Button x:Name="loadButton" Content="Load" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top" Width="64"/>
+                <Button x:Name="saveButton" Content="Save" HorizontalAlignment="Left" Margin="79,134,0,0" VerticalAlignment="Top" Width="65"/>
+                <Button x:Name="deleteRuleSetButton" Content="Delete" HorizontalAlignment="Left" Margin="289,134,0,0" VerticalAlignment="Top" Width="60" Click="deleteRuleSetButton_Click"/>
+            </Grid>
         </GroupBox>
-        <GroupBox x:Name="groupBox1" Header="Custom Rule Editor" Margin="10,0,10,40" Height="383" VerticalAlignment="Bottom">
+        <GroupBox x:Name="groupBox1" Header="Custom Rule Editor" Margin="10,0,10,46" Height="382" VerticalAlignment="Bottom">
             <Grid Margin="10">
                 <Canvas x:Name="ruleCanvas" HorizontalAlignment="Left" Background="{StaticResource OffsetGrid}" Height="151" Margin="10,36,0,0" VerticalAlignment="Top" Width="151" MouseRightButtonUp="Canvas_MouseRightButtonUp" MouseLeftButtonUp="Canvas_MouseLeftButtonUp"/>
                 <Label x:Name="label" Content="Neighborhood (5x5):" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="button3" Content="Add new custom RuleSet" Margin="10,292,177,10" Click="button3_Click"/>
-                <ListBox x:Name="rulesListBox" Height="152" Margin="167,36,10,0" VerticalAlignment="Top" IsSynchronizedWithCurrentItem="False"/>
+                <Button x:Name="addRuleSetButton" Content="Add new custom RuleSet" Margin="10,292,177,10" Click="button3_Click"/>
+                <ListBox x:Name="rulesListBox" Height="152" Margin="167,36,10,0" VerticalAlignment="Top" IsSynchronizedWithCurrentItem="False" SelectionChanged="rulesListBox_SelectionChanged"/>
                 <Label x:Name="label1" Content="Rules:" HorizontalAlignment="Left" Margin="167,5,0,0" VerticalAlignment="Top"/>
                 <TextBox x:Name="currentRuleText" Margin="10,216,10,100" TextWrapping="Wrap" Text="Current Rule" IsEnabled="False"/>
                 <Label x:Name="label2" Content="Current rule:" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top"/>
@@ -85,16 +90,17 @@
                     <ComboBoxItem Content="Dead"/>
                     <ComboBoxItem Content="Empty"/>
                 </ComboBox>
-                <ComboBox x:Name="comboFinalState" Margin="195,248,54,69" SelectedIndex="0">
+                <ComboBox x:Name="comboFinalState" Margin="195,248,54,68" SelectedIndex="0">
                     <ComboBoxItem Content="Alive"/>
                     <ComboBoxItem Content="Dead"/>
                 </ComboBox>
-                <Button x:Name="button4" Content="Add new rule" HorizontalAlignment="Left" Margin="229,292,0,0" VerticalAlignment="Top" Width="90" Height="39" Click="button4_Click"/>
-                <Button x:Name="button5" Content="Clear" HorizontalAlignment="Left" Margin="128,191,0,0" VerticalAlignment="Top" Width="34" Height="18" Click="button5_Click"/>
+                <Button x:Name="addRuleButton" Content="Add new rule" HorizontalAlignment="Left" Margin="229,292,0,0" VerticalAlignment="Top" Width="90" Height="39" Click="button4_Click"/>
+                <Button x:Name="clearButton" Content="Clear" HorizontalAlignment="Left" Margin="128,191,0,0" VerticalAlignment="Top" Width="34" Height="18" Click="button5_Click"/>
                 <Label x:Name="label3" Content="If" HorizontalAlignment="Left" Margin="10,246,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.263,-0.385"/>
                 <Label x:Name="label4" Content="then" HorizontalAlignment="Left" Margin="161,246,0,0" VerticalAlignment="Top"/>
-                <Button x:Name="button6" Content="Add" HorizontalAlignment="Left" Margin="285,248,0,0" VerticalAlignment="Top" Width="34" Height="24" Click="button6_Click"/>
-                <Button x:Name="button1" Content="Clear rules" HorizontalAlignment="Left" Margin="250,191,0,0" VerticalAlignment="Top" Width="69" Height="18" Click="button1_Click"/>
+                <Button x:Name="addTextRuleButton" Content="Add" HorizontalAlignment="Left" Margin="285,248,0,0" VerticalAlignment="Top" Width="34" Height="24" Click="button6_Click"/>
+                <Button x:Name="clearRulesButton" Content="Clear rules" HorizontalAlignment="Left" Margin="250,191,0,0" VerticalAlignment="Top" Width="69" Height="18" Click="button1_Click"/>
+                <Button x:Name="deleteRuleButton" Content="Delete" HorizontalAlignment="Left" Margin="167,191,0,0" VerticalAlignment="Top" Width="41" Height="18" Click="deleteRuleButton_Click"/>
             </Grid>
         </GroupBox>
     </Grid>

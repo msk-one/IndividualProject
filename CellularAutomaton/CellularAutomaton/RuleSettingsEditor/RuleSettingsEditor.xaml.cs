@@ -232,21 +232,23 @@ namespace CellularAutomaton.RuleSettingsEditor
                 currRule.finalState = currRule.Cell.currentState;
                 currSet.rules.Add(currRule);
                 rulesListBox.Items.Add("Rule " + currSet.rules.Count);
-                if (currSet.checkRuleSetValidity())
+
+                int valid = currSet.checkRuleSetValidity();
+
+                if (valid == -1)
                 {
-                    
+                    MessageBox.Show("Rule added",
+                        "Rule added", MessageBoxButton.OK,
+                        MessageBoxImage.Information);
                 }
                 else
                 {
                     if (MessageBox.Show("Rules in set are improper, do you want to fix them manually (yes) or auto (no)?",
                         "Rules not vaild", MessageBoxButton.YesNo,
-                        MessageBoxImage.Error, MessageBoxResult.Yes, MessageBoxOptions.None) == MessageBoxResult.Yes)
+                        MessageBoxImage.Error, MessageBoxResult.Yes, MessageBoxOptions.None) == MessageBoxResult.No)
                     {
-                        
-                    }
-                    else
-                    {
-                        
+                        currSet.rules.RemoveAt(valid);
+                        rulesListBox.Items.RemoveAt(valid);
                     }
                 }
             }
@@ -260,13 +262,23 @@ namespace CellularAutomaton.RuleSettingsEditor
                     currRule.initStateAlternative = currInitState;
                     currSet.rules.Add(currRule);
                     rulesListBox.Items.Add("Rule (text) " + currSet.rules.Count);
-                    if (currSet.checkRuleSetValidity())
-                    {
+                    int valid = currSet.checkRuleSetValidity();
 
+                    if (valid == -1)
+                    {
+                        MessageBox.Show("Rule (text) added",
+                            "Rule added", MessageBoxButton.OK,
+                            MessageBoxImage.Information);
                     }
                     else
                     {
-
+                        if (MessageBox.Show("Rules in set are improper, do you want to fix them manually (yes) or auto (no)?",
+                            "Rules not vaild", MessageBoxButton.YesNo,
+                            MessageBoxImage.Error, MessageBoxResult.Yes, MessageBoxOptions.None) == MessageBoxResult.No)
+                        {
+                            currSet.rules.RemoveAt(valid);
+                            rulesListBox.Items.RemoveAt(valid);
+                        }
                     }
                 }
             }
@@ -318,10 +330,110 @@ namespace CellularAutomaton.RuleSettingsEditor
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
-            ruleSetList.Add(currSet);
-            ruleSetsListBox.Items.Add("Custom Rule Set " + ruleSetList.Count);
-            currSet = new RuleSet();
-            currSet.rules = new List<Rule>();
+            int valid = currSet.checkRuleSetValidity();
+
+            if (valid == -1)
+            {
+                ruleSetList.Add(currSet);
+                ruleSetsListBox.Items.Add("Custom Rule Set " + ruleSetList.Count);
+                currSet = new RuleSet();
+                currSet.rules = new List<Rule>();
+
+                MessageBox.Show("RuleSet (custom) added",
+                    "RuleSet added", MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+            }
+            else
+            {
+                if (MessageBox.Show("Rules in set are improper, do you want to fix them manually (yes) or auto (no)?",
+                    "Rules not vaild", MessageBoxButton.YesNo,
+                    MessageBoxImage.Error, MessageBoxResult.Yes, MessageBoxOptions.None) == MessageBoxResult.No)
+                {
+                    currSet.rules.RemoveAt(valid);
+                    rulesListBox.Items.RemoveAt(valid);
+                }
+            }
+
+        }
+
+        private void deleteRuleButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (rulesListBox.SelectedItems.Count > 0)
+            {
+                var index = rulesListBox.Items.IndexOf(rulesListBox.SelectedItem);
+                rulesListBox.Items.RemoveAt(index);
+                currSet.rules.RemoveAt(index);
+            }
+        }
+
+        private void deleteRuleSetButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ruleSetsListBox.SelectedItems.Count > 0)
+            {
+                var index = ruleSetsListBox.Items.IndexOf(ruleSetsListBox.SelectedItem);
+                ruleSetsListBox.Items.RemoveAt(index);
+                ruleSetList.RemoveAt(index);
+            }
+        }
+
+        private void rulesListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var index = rulesListBox.Items.IndexOf(rulesListBox.SelectedItem);
+            currRule = currSet.getRule(index);
+
+            if (currRule != null)
+            {
+                if (currRule.cellCount == 0)
+                {
+                    ruleCanvas.Children.Clear();
+                    SolidColorBrush cellMarker;
+
+                    for (int i = 0; i < currRule.initState.cells.Count; i++)
+                    {
+                        Cell currCell = currRule.initState.cells[i];
+                        Rectangle rect = new Rectangle();
+
+                        rect.Width = 30 - 1;
+                        rect.Height = 30 - 1;
+
+                        if (currCell.currentState == State.Alive)
+                        {
+                            cellMarker = new SolidColorBrush(Color.FromRgb(0, 255, 0));
+                        }
+                        else if (currCell.currentState == State.Dead)
+                        {
+                            cellMarker = new SolidColorBrush(Color.FromRgb(255, 0, 0));
+                        }
+                        else
+                        {
+                            cellMarker = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                        }
+
+                        rect.Fill = cellMarker;
+
+                        Tuple<int, int> snappedCoords = snapToGrid(getCanvasCoordsFromCell(currCell).Item1 - 1,
+                            getCanvasCoordsFromCell(currCell).Item2 - 1, 30);
+                        Canvas.SetTop(rect, snappedCoords.Item2);
+                        Canvas.SetLeft(rect, snappedCoords.Item1);
+                        ruleCanvas.Children.Add(rect);
+                    }
+
+                    currentRuleText.Text = "Current Rule";
+
+                    currCellCount = 0;
+                    currInitState = State.Empty;
+                    currFinalState = State.Empty;
+                }
+                else
+                {
+                    currentRuleText.Text = "If " + currRule.cellCount + " cells in neigh. are " +
+                                           currRule.initStateAlternative +
+                                           " then cell will be " + currRule.finalState;
+                    currCellCount = currRule.cellCount;
+                    currFinalState = currRule.finalState;
+                    currInitState = currRule.initStateAlternative;
+                }
+            }
         }
     }
 }

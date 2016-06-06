@@ -2,6 +2,17 @@
 {
     public class Cell
     {
+        public int absx
+        {
+            get;
+            set;
+        }
+
+        public int absy
+        {
+            get;
+            set;
+        }
         public int x
         {
             get;
